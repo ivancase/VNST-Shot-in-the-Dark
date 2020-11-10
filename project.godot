@@ -24,6 +24,10 @@ config/name="VNST"
 run/main_scene="res://scenes/open_cutscene.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+mouse_cursor/custom_image="res://sprites/cursor.png"
+
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
