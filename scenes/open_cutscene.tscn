@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://animations/icosahedron1.png" type="Texture" id=1]
 [ext_resource path="res://animations/icosahedron4.png" type="Texture" id=2]
@@ -8,9 +8,10 @@
 [ext_resource path="res://animations/icosahedron7.png" type="Texture" id=6]
 [ext_resource path="res://animations/icosahedron3.png" type="Texture" id=7]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://scripts/DialogBox.gd" type="Script" id=9]
+[ext_resource path="res://scripts/DialogSystem.gd" type="Script" id=9]
 [ext_resource path="res://animations/icosahedron5.png" type="Texture" id=10]
 [ext_resource path="res://animations/sphere3.png" type="Texture" id=11]
+[ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
 [ext_resource path="res://sounds/talk.wav" type="AudioStream" id=13]
 [ext_resource path="res://sounds/talk2.wav" type="AudioStream" id=14]
 [ext_resource path="res://animations/sphere5.png" type="Texture" id=15]
@@ -63,12 +64,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect5" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -568.31
+margin_top = -633.401
+margin_right = 572.69
+margin_bottom = 66.5994
+color = Color( 0.45098, 0.290196, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 512.267, 303.796 )
-scale = Vector2( 1.06187, 1.06187 )
+position = Vector2( 510.485, 300.232 )
 texture = ExtResource( 26 )
 
 [node name="DialogBox" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -76,7 +91,6 @@ anchor_bottom = 1.0
 margin_left = -20.0
 margin_top = -40.0
 margin_right = 20.0
-script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,7 +101,6 @@ frames = SubResource( 1 )
 frame = 1
 
 [node name="sphere" type="AnimatedSprite" parent="DialogBox"]
-visible = false
 position = Vector2( -298.878, -264.286 )
 frames = SubResource( 2 )
 frame = 9
@@ -202,3 +215,109 @@ stream = ExtResource( 13 )
 
 [node name="clerktalk" type="AudioStreamPlayer" parent="DialogBox"]
 stream = ExtResource( 14 )
+
+[node name="DialogSystem" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icosahedron" type="Control" parent="DialogSystem"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+textcolor = Color( 1, 0.321569, 0.466667, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="DialogSystem/Icosahedron"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 412.0
+margin_top = 126.0
+margin_right = 749.0
+margin_bottom = 264.0
+color = Color( 0.160784, 0.113725, 0.168627, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="RichTextLabel" parent="DialogSystem/Icosahedron"]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 437.0
+margin_top = 174.68
+margin_right = 766.0
+margin_bottom = 306.68
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "this is a test !!"
+text = "this is a test !!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="body" type="AnimatedSprite" parent="DialogSystem/Icosahedron"]
+position = Vector2( 876.059, 343.072 )
+frames = SubResource( 1 )
+frame = 6
+playing = true
+
+[node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Icosahedron"]
+stream = ExtResource( 14 )
+
+[node name="Sphere" type="Control" parent="DialogSystem"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+textcolor = Color( 0.388235, 0.780392, 0.301961, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="DialogSystem/Sphere"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 350.528
+margin_top = 125.109
+margin_right = 687.528
+margin_bottom = 263.109
+color = Color( 0.160784, 0.113725, 0.168627, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="RichTextLabel" parent="DialogSystem/Sphere"]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 371.0
+margin_top = 171.68
+margin_right = 704.0
+margin_bottom = 303.68
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "this is a test !!"
+text = "this is a test !!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="body" type="AnimatedSprite" parent="DialogSystem/Sphere"]
+position = Vector2( 193.122, 295.714 )
+frames = SubResource( 2 )
+playing = true
+flip_h = true
+
+[node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Sphere"]
+stream = ExtResource( 13 )
+
+[node name="Tween" type="Tween" parent="DialogSystem"]
