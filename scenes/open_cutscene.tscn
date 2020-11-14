@@ -12,8 +12,7 @@
 [ext_resource path="res://animations/icosahedron5.png" type="Texture" id=10]
 [ext_resource path="res://animations/sphere3.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
-[ext_resource path="res://sounds/talk.wav" type="AudioStream" id=13]
-[ext_resource path="res://sounds/talk2.wav" type="AudioStream" id=14]
+[ext_resource path="res://sounds/icosahedron.wav" type="AudioStream" id=14]
 [ext_resource path="res://animations/sphere5.png" type="Texture" id=15]
 [ext_resource path="res://animations/sphere4.png" type="Texture" id=16]
 [ext_resource path="res://animations/sphere8.png" type="Texture" id=17]
@@ -28,6 +27,7 @@
 [ext_resource path="res://sprites/background.png" type="Texture" id=26]
 [ext_resource path="res://scripts/ChoiceBox.gd" type="Script" id=27]
 [ext_resource path="res://scripts/Button.gd" type="Script" id=28]
+[ext_resource path="res://sounds/sphere.wav" type="AudioStream" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -276,7 +276,7 @@ __meta__ = {
 }
 
 [node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Sphere/nonbody"]
-stream = ExtResource( 13 )
+stream = ExtResource( 29 )
 
 [node name="Narrator" type="Control" parent="DialogSystem"]
 margin_right = 40.0
@@ -321,6 +321,11 @@ __meta__ = {
 }
 
 [node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Narrator/nonbody"]
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
+pitch_scale = 0.6
 
 [node name="Tween" type="Tween" parent="DialogSystem"]
+
+[node name="Timer" type="Timer" parent="DialogSystem"]
+wait_time = 0.05
+one_shot = true

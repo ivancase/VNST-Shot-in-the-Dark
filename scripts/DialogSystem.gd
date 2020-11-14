@@ -60,7 +60,7 @@ func play_dialogue(dialogue):
 		var actor = lineinfo[0]
 		var text = lineinfo[1]
 		actor.enter_limelight()
-		actor.act(text)
+		yield(actor.act(text), "completed")
 		yield(self, "next")
 		actor.exit_limelight()
 		
