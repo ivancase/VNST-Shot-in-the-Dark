@@ -12,12 +12,12 @@ var speaking
 
 func _ready():
 	body = get_node("body")
-	
 	nonbody = get_node("nonbody")
 	text = nonbody.get_node("text")
 	voice = nonbody.get_node("voice")
-	
 	tween = get_node("../Tween")
+	
+	nonbody.hide()
 
 func act(line):
 	text.bbcode_text = "[color=#{hexcode}]{line}[/color]".format({"hexcode": textcolor.to_html(), "line": line})
