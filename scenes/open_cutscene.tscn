@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://animations/icosahedron1.png" type="Texture" id=1]
 [ext_resource path="res://animations/icosahedron4.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://animations/icosahedron5.png" type="Texture" id=10]
 [ext_resource path="res://animations/sphere3.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
+[ext_resource path="res://shaders/outline.tres" type="Material" id=13]
 [ext_resource path="res://sounds/icosahedron.wav" type="AudioStream" id=14]
 [ext_resource path="res://animations/sphere5.png" type="Texture" id=15]
 [ext_resource path="res://animations/sphere4.png" type="Texture" id=16]
@@ -28,9 +29,16 @@
 [ext_resource path="res://scripts/ChoiceBox.gd" type="Script" id=27]
 [ext_resource path="res://scripts/Button.gd" type="Script" id=28]
 [ext_resource path="res://sounds/sphere.wav" type="AudioStream" id=29]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=30]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 30 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -45,7 +53,7 @@ size = 30
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 19 ) ],
 "loop": true,
@@ -74,42 +82,27 @@ __meta__ = {
 position = Vector2( 510.485, 300.232 )
 texture = ExtResource( 26 )
 
-[node name="DialogSystem" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="DialogSystem" type="Node2D" parent="."]
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Choice Box" type="Control" parent="DialogSystem"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Choice Box" type="Node2D" parent="DialogSystem"]
 script = ExtResource( 27 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect5" type="ColorRect" parent="DialogSystem/Choice Box"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 388.0
-margin_top = 81.5796
-margin_right = 649.0
-margin_bottom = 329.58
+margin_left = 410.025
+margin_top = 120.957
+margin_right = 671.025
+margin_bottom = 368.958
 color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="buttons" type="Control" parent="DialogSystem/Choice Box"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="buttons" type="Node2D" parent="DialogSystem/Choice Box"]
 
 [node name="Button" type="Button" parent="DialogSystem/Choice Box/buttons"]
 margin_left = 439.555
@@ -167,38 +160,37 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Icosahedron" type="Control" parent="DialogSystem"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Icosahedron" type="Node2D" parent="DialogSystem"]
 script = ExtResource( 12 )
+textcolor = Color( 1, 0.321569, 0.466667, 1 )
+
+[node name="body" type="Control" parent="DialogSystem/Icosahedron"]
+margin_left = 705.0
+margin_top = 88.0
+margin_right = 1026.0
+margin_bottom = 599.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-textcolor = Color( 1, 0.321569, 0.466667, 1 )
 
-[node name="body" type="AnimatedSprite" parent="DialogSystem/Icosahedron"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 876.059, 343.072 )
+[node name="anim" type="AnimatedSprite" parent="DialogSystem/Icosahedron/body"]
+material = SubResource( 7 )
+position = Vector2( 171.059, 255.072 )
 frames = SubResource( 2 )
 frame = 4
 
-[node name="nonbody" type="Control" parent="DialogSystem/Icosahedron"]
+[node name="nonbody" type="Node2D" parent="DialogSystem/Icosahedron"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect4" type="ColorRect" parent="DialogSystem/Icosahedron/nonbody"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 359.437
-margin_top = 151.856
-margin_right = 696.437
-margin_bottom = 401.856
+margin_left = 370.783
+margin_top = 189.232
+margin_right = 707.783
+margin_bottom = 439.232
 color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -222,39 +214,39 @@ __meta__ = {
 [node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Icosahedron/nonbody"]
 stream = ExtResource( 14 )
 
-[node name="Sphere" type="Control" parent="DialogSystem"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Sphere" type="Node2D" parent="DialogSystem"]
 script = ExtResource( 12 )
+textcolor = Color( 0.388235, 0.780392, 0.301961, 1 )
+
+[node name="body" type="Control" parent="DialogSystem/Sphere"]
+margin_left = 19.1622
+margin_top = 131.027
+margin_right = 366.162
+margin_bottom = 478.027
 __meta__ = {
 "_edit_use_anchors_": false
 }
-textcolor = Color( 0.388235, 0.780392, 0.301961, 1 )
 
-[node name="body" type="AnimatedSprite" parent="DialogSystem/Sphere"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 193.122, 295.714 )
-frames = SubResource( 4 )
+[node name="anim" type="AnimatedSprite" parent="DialogSystem/Sphere/body"]
+light_mask = -2147483647
+material = ExtResource( 13 )
+position = Vector2( 173.96, 164.687 )
+frames = SubResource( 6 )
 frame = 12
 flip_h = true
 
-[node name="nonbody" type="Control" parent="DialogSystem/Sphere"]
+[node name="nonbody" type="Node2D" parent="DialogSystem/Sphere"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect5" type="ColorRect" parent="DialogSystem/Sphere/nonbody"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 359.437
-margin_top = 151.856
-margin_right = 696.437
-margin_bottom = 401.856
+margin_left = 368.781
+margin_top = 187.897
+margin_right = 705.781
+margin_bottom = 437.897
 color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -278,22 +270,12 @@ __meta__ = {
 [node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Sphere/nonbody"]
 stream = ExtResource( 29 )
 
-[node name="Narrator" type="Control" parent="DialogSystem"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Narrator" type="Node2D" parent="DialogSystem"]
 script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 textcolor = Color( 1, 1, 1, 1 )
 
-[node name="nonbody" type="Control" parent="DialogSystem/Narrator"]
+[node name="nonbody" type="Node2D" parent="DialogSystem/Narrator"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect6" type="ColorRect" parent="DialogSystem/Narrator/nonbody"]
 margin_left = 212.0

@@ -1,27 +1,25 @@
-extends Control
+extends Node2D
 
 signal next
 
-var icosa
-var sphere
-var narrator
-var choicebox
+onready var icosa = get_node("Icosahedron")
+onready var sphere = get_node("Sphere")
+onready var narrator = get_node("Narrator")
+onready var choicebox = get_node("Choice Box")
+onready var timer = get_node("Timer")
 
 func _ready():
-	icosa = get_node("Icosahedron")
-	sphere = get_node("Sphere")
-	narrator = get_node("Narrator")
-	choicebox = get_node("Choice Box")
-
 	var branches = [[["Who are you?", "Where were you?"], [WHO, WHERE]]]
 	
 	direct_scene(_parse_script(INTRO), branches)
 	
-	#play_dialogue(_parse_script(key, INTRO))
-	
 func _input(event):
+	var boost_amt = 4
 	if event.is_action_pressed("ui_accept"):
 		emit_signal("next")
+		timer.wait_time /= boost_amt
+	if event.is_action_released("ui_accept"):
+		timer.wait_time *= boost_amt
 		
 func _parse_script(script):
 	var key = {"i" : icosa, "s" : sphere, "n" : narrator}
