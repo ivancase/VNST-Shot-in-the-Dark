@@ -6,7 +6,12 @@ onready var icosa = get_node("Icosahedron")
 onready var sphere = get_node("Sphere")
 onready var narrator = get_node("Narrator")
 onready var choicebox = get_node("Choice Box")
+onready var shoot_sound = get_node("Shoot")
+onready var white_screen = get_node("White Screen")
 onready var timer = get_node("Timer")
+onready var tween = get_node("Tween")
+
+var target
 
 func _ready():
 	var branches = [[["Who are you?", "Where were you?"], [WHO, WHERE]]]
@@ -20,6 +25,19 @@ func _input(event):
 		timer.wait_time /= boost_amt
 	if event.is_action_released("ui_accept"):
 		timer.wait_time *= boost_amt
+	if event.is_action_pressed("shoot"):
+		_shoot()
+		
+func _shoot():
+	shoot_sound.play()
+	
+	
+	var flash_time = 1
+	tween.interpolate_property(white_screen, "color", Color(1, 1, 1, 1), Color(1, 1, 1, 0), flash_time, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
+	
+	if target:
+		target.die()
 		
 func _parse_script(script):
 	var key = {"i" : icosa, "s" : sphere, "n" : narrator}

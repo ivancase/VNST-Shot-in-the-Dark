@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://animations/icosahedron1.png" type="Texture" id=1]
 [ext_resource path="res://animations/icosahedron4.png" type="Texture" id=2]
@@ -30,17 +30,18 @@
 [ext_resource path="res://scripts/Button.gd" type="Script" id=28]
 [ext_resource path="res://sounds/sphere.wav" type="AudioStream" id=29]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=30]
+[ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=31]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 30 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ) ],
 "loop": true,
@@ -48,12 +49,12 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 19 ) ],
 "loop": true,
@@ -174,9 +175,9 @@ __meta__ = {
 }
 
 [node name="anim" type="AnimatedSprite" parent="DialogSystem/Icosahedron/body"]
-material = SubResource( 7 )
+material = SubResource( 2 )
 position = Vector2( 171.059, 255.072 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 frame = 4
 
 [node name="nonbody" type="Node2D" parent="DialogSystem/Icosahedron"]
@@ -203,7 +204,7 @@ margin_left = 384.437
 margin_top = 203.298
 margin_right = 713.437
 margin_bottom = 433.298
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "this is a test !!"
 text = "this is a test !!"
@@ -231,7 +232,7 @@ __meta__ = {
 light_mask = -2147483647
 material = ExtResource( 13 )
 position = Vector2( 173.96, 164.687 )
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 frame = 12
 flip_h = true
 
@@ -259,7 +260,7 @@ margin_left = 379.909
 margin_top = 203.298
 margin_right = 712.909
 margin_bottom = 433.298
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "this is a test !!"
 text = "this is a test !!"
@@ -294,7 +295,7 @@ margin_left = 219.0
 margin_top = 425.68
 margin_right = 814.0
 margin_bottom = 562.68
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "this is a test !!"
 text = "this is a test !!"
@@ -311,3 +312,18 @@ pitch_scale = 0.6
 [node name="Timer" type="Timer" parent="DialogSystem"]
 wait_time = 0.05
 one_shot = true
+
+[node name="Shoot" type="AudioStreamPlayer" parent="DialogSystem"]
+stream = ExtResource( 31 )
+volume_db = -10.0
+
+[node name="White Screen" type="ColorRect" parent="DialogSystem"]
+margin_left = -18.4998
+margin_top = -15.977
+margin_right = 1039.5
+margin_bottom = 614.023
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

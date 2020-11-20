@@ -25,6 +25,7 @@ func _on_mouse_enter():
 		anim.modulate = Color(1, 1, 1)
 		anim.playing = true
 	anim.get_material().set_shader_param("enabled", true)
+	get_parent().target = self
 	
 
 func _on_mouse_exit():
@@ -32,6 +33,7 @@ func _on_mouse_exit():
 		anim.modulate = Color(0, 0, 0)
 		anim.playing = false
 	anim.get_material().set_shader_param("enabled", false)
+	get_parent().target = null
 	
 func act(line):
 	text.bbcode_text = "[color=#{hexcode}]{line}[/color]".format({"hexcode": textcolor.to_html(), "line": line})
@@ -43,6 +45,9 @@ func act(line):
 			timer.start()
 			yield(timer, "timeout")
 	text.percent_visible = 1
+
+func die():
+	print("dead.")
 
 func enter_limelight():
 	nonbody.show()
