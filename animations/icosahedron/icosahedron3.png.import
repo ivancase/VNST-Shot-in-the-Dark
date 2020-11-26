@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sphere2.png-61ff3e677c34a871f39b9f5f831bbc75.stex"
+path="res://.import/icosahedron3.png-e6ec15d151f64bf5ac53eb1dca278f57.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/sphere2.png"
-dest_files=[ "res://.import/sphere2.png-61ff3e677c34a871f39b9f5f831bbc75.stex" ]
+source_file="res://animations/icosahedron/icosahedron3.png"
+dest_files=[ "res://.import/icosahedron3.png-e6ec15d151f64bf5ac53eb1dca278f57.stex" ]
 
 [params]
 
