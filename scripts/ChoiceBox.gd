@@ -18,6 +18,15 @@ func _set_choice(index):
 	choice = index
 	emit_signal("choice")
 	
+func any_enabled():
+	for b in buttons:
+		if !b.disabled:
+			return true
+	return false
+	
+func disable(index):
+	buttons[index].disabled = true
+	
 func get_choice():
 	return choice
 	
@@ -25,8 +34,12 @@ func populate(choices):
 	var index = 0
 	for label in choices:
 		buttons[index].text = label
-		buttons[index].show()
 		index += 1
+		
+func show():
+	for b in buttons:
+		b.show()
+	.show()
 
 func hide():
 	for b in buttons:

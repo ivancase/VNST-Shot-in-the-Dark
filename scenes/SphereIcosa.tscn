@@ -13,7 +13,6 @@
 [ext_resource path="res://animations/sphere3.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
 [ext_resource path="res://shaders/outline.tres" type="Material" id=13]
-[ext_resource path="res://sounds/icosahedron.wav" type="AudioStream" id=14]
 [ext_resource path="res://animations/sphere5.png" type="Texture" id=15]
 [ext_resource path="res://animations/sphere4.png" type="Texture" id=16]
 [ext_resource path="res://animations/sphere8.png" type="Texture" id=17]
@@ -28,9 +27,9 @@
 [ext_resource path="res://sprites/background.png" type="Texture" id=26]
 [ext_resource path="res://scripts/ChoiceBox.gd" type="Script" id=27]
 [ext_resource path="res://scripts/Button.gd" type="Script" id=28]
-[ext_resource path="res://sounds/sphere.wav" type="AudioStream" id=29]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=30]
 [ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=31]
+[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=32]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -62,6 +61,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=6]
+size = 60
+outline_color = Color( 1, 0.321569, 0.466667, 1 )
+font_data = ExtResource( 8 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -87,6 +91,7 @@ texture = ExtResource( 26 )
 script = ExtResource( 9 )
 
 [node name="Choice Box" type="Node2D" parent="DialogSystem"]
+visible = false
 script = ExtResource( 27 )
 
 [node name="ColorRect5" type="ColorRect" parent="DialogSystem/Choice Box"]
@@ -140,6 +145,7 @@ margin_right = 639.555
 margin_bottom = 295.471
 rect_pivot_offset = Vector2( 127.414, 39.5667 )
 custom_fonts/font = SubResource( 1 )
+disabled = true
 text = "Option 3"
 script = ExtResource( 28 )
 __meta__ = {
@@ -154,6 +160,7 @@ margin_right = 639.555
 margin_bottom = 350.471
 rect_pivot_offset = Vector2( 127.414, 39.5667 )
 custom_fonts/font = SubResource( 1 )
+disabled = true
 text = "Option 4"
 script = ExtResource( 28 )
 __meta__ = {
@@ -213,7 +220,8 @@ __meta__ = {
 }
 
 [node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Icosahedron/nonbody"]
-stream = ExtResource( 14 )
+stream = ExtResource( 32 )
+pitch_scale = 1.59
 
 [node name="Sphere" type="Node2D" parent="DialogSystem"]
 script = ExtResource( 12 )
@@ -269,7 +277,8 @@ __meta__ = {
 }
 
 [node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Sphere/nonbody"]
-stream = ExtResource( 29 )
+stream = ExtResource( 32 )
+pitch_scale = 0.57
 
 [node name="Narrator" type="Node2D" parent="DialogSystem"]
 script = ExtResource( 12 )
@@ -304,8 +313,7 @@ __meta__ = {
 }
 
 [node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Narrator/nonbody"]
-stream = ExtResource( 14 )
-pitch_scale = 0.6
+stream = ExtResource( 32 )
 
 [node name="Tween" type="Tween" parent="DialogSystem"]
 
@@ -315,9 +323,27 @@ one_shot = true
 
 [node name="Shoot" type="AudioStreamPlayer" parent="DialogSystem"]
 stream = ExtResource( 31 )
-volume_db = -10.0
+volume_db = -15.0
+pitch_scale = 0.9
+
+[node name="ExonecuteText" type="RichTextLabel" parent="DialogSystem"]
+visible = false
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 12.3181
+margin_top = 3.1433
+margin_right = 1031.32
+margin_bottom = 140.143
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
+text = "EXONECUTE THE INNOCENT PARTY."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="White Screen" type="ColorRect" parent="DialogSystem"]
+visible = false
 margin_left = -18.4998
 margin_top = -15.977
 margin_right = 1039.5
