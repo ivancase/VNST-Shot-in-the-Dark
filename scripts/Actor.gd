@@ -4,16 +4,20 @@ export(Color, RGB) var textcolor
 
 onready var body = get_node("body")
 onready var nonbody = get_node("nonbody")
-onready var text = nonbody.get_node("text")
-onready var voice = nonbody.get_node("voice")
+onready var text_box = get_node("../Text Box")
+onready var voice = get_node("voice")
 onready var timer = get_node("../Timer")
 onready var area2D = get_node("Area2D")
 var anim
+var text
 
 var hiding
 
 func _ready():
+	if nonbody:
+		text = nonbody.get_node("text")
 	if body:
+		text = text_box.get_node("text")
 		anim = body.get_node("anim")
 		body.connect("mouse_entered", self, "_on_mouse_enter")
 		body.connect("mouse_exited", self, "_on_mouse_exit")
@@ -50,15 +54,19 @@ func die():
 	print("dead.")
 
 func enter_limelight():
-	nonbody.show()
-	if anim:
+	if nonbody:
+		nonbody.show()
+	if body:
+		text_box.show()
 		anim.modulate = Color(1, 1, 1)
 		anim.playing = true
 		hiding = false
 	
 func exit_limelight():
-	nonbody.hide()
+	if nonbody:
+		nonbody.hide()
 	if anim:
+		text_box.hide()
 		anim.modulate = Color(0, 0, 0)
 		anim.playing = false
 		hiding = true

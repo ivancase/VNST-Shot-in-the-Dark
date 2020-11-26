@@ -7,9 +7,11 @@ onready var sphere = get_node("Sphere")
 onready var narrator = get_node("Narrator")
 onready var choicebox = get_node("Choice Box")
 onready var shoot_sound = get_node("Shoot")
-onready var white_screen = get_node("White Screen")
 onready var timer = get_node("Timer")
 onready var tween = get_node("Tween")
+onready var exonecute_text = get_node("Exonecute Text")
+onready var white_screen = get_node("White Screen")
+onready var color_shift = get_node("Color Shift")
 
 var target
 
@@ -37,6 +39,7 @@ func _shoot():
 	
 	
 	var flash_time = 1
+	white_screen.show()
 	tween.interpolate_property(white_screen, "color", Color(1, 1, 1, 1), Color(1, 1, 1, 0), flash_time, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 	
@@ -57,7 +60,10 @@ func _parse_script(script):
 	return dialogue
 	
 func _end():
-	pass
+	yield(play_dialogue(_parse_script(TIMES_UP)), "completed")
+	
+	exonecute_text.show()
+	color_shift.duration /= 2
 	
 func direct_scene(intro, scripts):
 	yield(play_dialogue(intro), "completed")
@@ -102,5 +108,9 @@ const WHERE = """
 	i :: i saw you at the circle emporium !!!!! :OO
 	s :: W- what are you talking about?!
 	s :: Pointless libel!
+	"""
+	
+const TIMES_UP = """
+	n :: ok. time's up. make your choice.
 	"""
 	

@@ -13,7 +13,7 @@
 [ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
 [ext_resource path="res://shaders/outline.tres" type="Material" id=13]
-[ext_resource path="res://scenes/ColorShift.gd" type="Script" id=14]
+[ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
 [ext_resource path="res://animations/sphere/sphere4.png" type="Texture" id=15]
 [ext_resource path="res://animations/sphere/sphere1.png" type="Texture" id=16]
 [ext_resource path="res://animations/sphere/sphere2.png" type="Texture" id=17]
@@ -42,10 +42,10 @@
 [ext_resource path="res://animations/background/anim_background7.png" type="Texture" id=40]
 [ext_resource path="res://animations/background/anim_background9.png" type="Texture" id=41]
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 37 ) ],
 "loop": true,
@@ -53,16 +53,27 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=8]
+size = 60
+outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="DynamicFont" id=9]
+size = 20
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+outline_color = Color( 1, 0.321569, 0.466667, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 30 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ) ],
 "loop": true,
@@ -70,23 +81,13 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="DynamicFont" id=4]
-size = 30
-outline_color = Color( 1, 0.321569, 0.466667, 1 )
-font_data = ExtResource( 8 )
-
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="DynamicFont" id=6]
-size = 60
-outline_color = Color( 1, 0.321569, 0.466667, 1 )
-font_data = ExtResource( 8 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -95,7 +96,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorShift" type="ColorRect" parent="."]
+[node name="Dialog System" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Color Shift" type="ColorRect" parent="Dialog System"]
 margin_left = -56.31
 margin_top = -33.401
 margin_right = 1084.69
@@ -104,48 +108,61 @@ script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-duration = 5.0
 
-[node name="Tween" type="Tween" parent="ColorShift"]
+[node name="Tween" type="Tween" parent="Dialog System/Color Shift"]
 
-[node name="background" type="AnimatedSprite" parent="."]
-material = SubResource( 7 )
-position = Vector2( 510.485, 300.232 )
-frames = SubResource( 8 )
-frame = 9
+[node name="background" type="AnimatedSprite" parent="Dialog System"]
+material = SubResource( 1 )
+position = Vector2( 0, -210 )
+frames = SubResource( 2 )
+frame = 7
 speed_scale = 0.1
 playing = true
+centered = false
 
-[node name="DialogSystem" type="Node2D" parent="."]
-script = ExtResource( 9 )
-
-[node name="Choice Box" type="Node2D" parent="DialogSystem"]
+[node name="Choice Box" type="Node2D" parent="Dialog System"]
 visible = false
 script = ExtResource( 27 )
 
-[node name="ColorRect5" type="ColorRect" parent="DialogSystem/Choice Box"]
+[node name="instruction" type="RichTextLabel" parent="Dialog System/Choice Box"]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 120.182
+margin_top = 1.8409
+margin_right = 972.182
+margin_bottom = 138.841
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[shake]SHOOT TO ASK A QUESTION."
+text = "SHOOT TO ASK A QUESTION."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="Dialog System/Choice Box"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 410.025
-margin_top = 120.957
-margin_right = 671.025
-margin_bottom = 368.958
+margin_left = 410.0
+margin_top = 120.0
+margin_right = 671.0
+margin_bottom = 368.001
 color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="buttons" type="Node2D" parent="DialogSystem/Choice Box"]
+[node name="buttons" type="Node2D" parent="Dialog System/Choice Box"]
+modulate = Color( 0.752941, 0.796078, 0.862745, 1 )
 
-[node name="Button" type="Button" parent="DialogSystem/Choice Box/buttons"]
-margin_left = 439.555
-margin_top = 139.47
-margin_right = 639.555
-margin_bottom = 185.47
+[node name="Button" type="Button" parent="Dialog System/Choice Box/buttons"]
+margin_left = 440.0
+margin_top = 132.0
+margin_right = 640.0
+margin_bottom = 178.0
 rect_pivot_offset = Vector2( 127.414, 39.5667 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "Option 1"
 script = ExtResource( 28 )
 __meta__ = {
@@ -153,13 +170,13 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Button2" type="Button" parent="DialogSystem/Choice Box/buttons"]
-margin_left = 439.555
-margin_top = 194.471
-margin_right = 639.555
-margin_bottom = 240.471
+[node name="Button2" type="Button" parent="Dialog System/Choice Box/buttons"]
+margin_left = 440.0
+margin_top = 192.0
+margin_right = 640.0
+margin_bottom = 238.0
 rect_pivot_offset = Vector2( 127.414, 39.5667 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "Option 2"
 script = ExtResource( 28 )
 __meta__ = {
@@ -167,13 +184,13 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Button3" type="Button" parent="DialogSystem/Choice Box/buttons"]
-margin_left = 439.555
-margin_top = 249.471
-margin_right = 639.555
-margin_bottom = 295.471
+[node name="Button3" type="Button" parent="Dialog System/Choice Box/buttons"]
+margin_left = 440.0
+margin_top = 252.0
+margin_right = 640.0
+margin_bottom = 298.0
 rect_pivot_offset = Vector2( 127.414, 39.5667 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 disabled = true
 text = "Option 3"
 script = ExtResource( 28 )
@@ -182,13 +199,13 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Button4" type="Button" parent="DialogSystem/Choice Box/buttons"]
-margin_left = 439.555
-margin_top = 304.471
-margin_right = 639.555
-margin_bottom = 350.471
+[node name="Button4" type="Button" parent="Dialog System/Choice Box/buttons"]
+margin_left = 440.0
+margin_top = 312.0
+margin_right = 640.0
+margin_bottom = 358.0
 rect_pivot_offset = Vector2( 127.414, 39.5667 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 disabled = true
 text = "Option 4"
 script = ExtResource( 28 )
@@ -197,11 +214,43 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Icosahedron" type="Node2D" parent="DialogSystem"]
+[node name="Text Box" type="Node2D" parent="Dialog System"]
+visible = false
+
+[node name="box" type="ColorRect" parent="Dialog System/Text Box"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 370.0
+margin_top = 190.0
+margin_right = 705.0
+margin_bottom = 425.0
+color = Color( 0, 0, 0, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="RichTextLabel" parent="Dialog System/Text Box"]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 380.0
+margin_top = 203.0
+margin_right = 692.0
+margin_bottom = 412.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "this is a test !!"
+text = "this is a test !!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icosahedron" type="Node2D" parent="Dialog System"]
 script = ExtResource( 12 )
 textcolor = Color( 1, 0.321569, 0.466667, 1 )
 
-[node name="body" type="Control" parent="DialogSystem/Icosahedron"]
+[node name="body" type="Control" parent="Dialog System/Icosahedron"]
 margin_left = 705.0
 margin_top = 88.0
 margin_right = 1026.0
@@ -210,52 +259,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="anim" type="AnimatedSprite" parent="DialogSystem/Icosahedron/body"]
-material = SubResource( 2 )
+[node name="anim" type="AnimatedSprite" parent="Dialog System/Icosahedron/body"]
+material = SubResource( 4 )
 position = Vector2( 171.059, 255.072 )
-frames = SubResource( 3 )
+frames = SubResource( 5 )
 
-[node name="nonbody" type="Node2D" parent="DialogSystem/Icosahedron"]
-visible = false
-
-[node name="ColorRect4" type="ColorRect" parent="DialogSystem/Icosahedron/nonbody"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 370.783
-margin_top = 189.232
-margin_right = 707.783
-margin_bottom = 439.232
-color = Color( 0, 0, 0, 0.784314 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="text" type="RichTextLabel" parent="DialogSystem/Icosahedron/nonbody"]
-anchor_top = -0.017
-anchor_bottom = -0.017
-margin_left = 384.437
-margin_top = 203.298
-margin_right = 713.437
-margin_bottom = 433.298
-custom_fonts/normal_font = SubResource( 4 )
-bbcode_enabled = true
-bbcode_text = "this is a test !!"
-text = "this is a test !!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Icosahedron/nonbody"]
+[node name="voice" type="AudioStreamPlayer" parent="Dialog System/Icosahedron"]
 stream = ExtResource( 32 )
 pitch_scale = 1.59
 
-[node name="Sphere" type="Node2D" parent="DialogSystem"]
+[node name="Sphere" type="Node2D" parent="Dialog System"]
 script = ExtResource( 12 )
 textcolor = Color( 0.388235, 0.780392, 0.301961, 1 )
 
-[node name="body" type="Control" parent="DialogSystem/Sphere"]
+[node name="body" type="Control" parent="Dialog System/Sphere"]
 margin_left = 19.1622
 margin_top = 131.027
 margin_right = 366.162
@@ -264,57 +281,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="anim" type="AnimatedSprite" parent="DialogSystem/Sphere/body"]
+[node name="anim" type="AnimatedSprite" parent="Dialog System/Sphere/body"]
 light_mask = -2147483647
 material = ExtResource( 13 )
 position = Vector2( 173.96, 164.687 )
-frames = SubResource( 5 )
+frames = SubResource( 7 )
 flip_h = true
 
-[node name="nonbody" type="Node2D" parent="DialogSystem/Sphere"]
-visible = false
-
-[node name="ColorRect5" type="ColorRect" parent="DialogSystem/Sphere/nonbody"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 368.781
-margin_top = 187.897
-margin_right = 705.781
-margin_bottom = 437.897
-color = Color( 0, 0, 0, 0.784314 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="text" type="RichTextLabel" parent="DialogSystem/Sphere/nonbody"]
-anchor_top = -0.017
-anchor_bottom = -0.017
-margin_left = 379.909
-margin_top = 203.298
-margin_right = 712.909
-margin_bottom = 433.298
-custom_fonts/normal_font = SubResource( 4 )
-bbcode_enabled = true
-bbcode_text = "this is a test !!"
-text = "this is a test !!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Sphere/nonbody"]
+[node name="voice" type="AudioStreamPlayer" parent="Dialog System/Sphere"]
 stream = ExtResource( 32 )
 pitch_scale = 0.57
 
-[node name="Narrator" type="Node2D" parent="DialogSystem"]
+[node name="Narrator" type="Node2D" parent="Dialog System"]
 script = ExtResource( 12 )
 textcolor = Color( 1, 1, 1, 1 )
 
-[node name="nonbody" type="Node2D" parent="DialogSystem/Narrator"]
+[node name="nonbody" type="Node2D" parent="Dialog System/Narrator"]
 visible = false
 
-[node name="ColorRect6" type="ColorRect" parent="DialogSystem/Narrator/nonbody"]
+[node name="ColorRect6" type="ColorRect" parent="Dialog System/Narrator/nonbody"]
 margin_left = 212.0
 margin_top = 420.0
 margin_right = 820.0
@@ -324,14 +309,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="text" type="RichTextLabel" parent="DialogSystem/Narrator/nonbody"]
+[node name="text" type="RichTextLabel" parent="Dialog System/Narrator/nonbody"]
 anchor_top = -0.017
 anchor_bottom = -0.017
 margin_left = 219.0
 margin_top = 425.68
 margin_right = 814.0
 margin_bottom = 562.68
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 6 )
 bbcode_enabled = true
 bbcode_text = "this is a test !!"
 text = "this is a test !!"
@@ -339,21 +324,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="voice" type="AudioStreamPlayer" parent="DialogSystem/Narrator/nonbody"]
+[node name="voice" type="AudioStreamPlayer" parent="Dialog System/Narrator"]
 stream = ExtResource( 32 )
 
-[node name="Tween" type="Tween" parent="DialogSystem"]
+[node name="Tween" type="Tween" parent="Dialog System"]
 
-[node name="Timer" type="Timer" parent="DialogSystem"]
+[node name="Timer" type="Timer" parent="Dialog System"]
 wait_time = 0.05
 one_shot = true
 
-[node name="Shoot" type="AudioStreamPlayer" parent="DialogSystem"]
+[node name="Shoot" type="AudioStreamPlayer" parent="Dialog System"]
 stream = ExtResource( 31 )
 volume_db = -15.0
 pitch_scale = 0.9
 
-[node name="ExonecuteText" type="RichTextLabel" parent="DialogSystem"]
+[node name="Exonecute Text" type="RichTextLabel" parent="Dialog System"]
 visible = false
 anchor_top = -0.017
 anchor_bottom = -0.017
@@ -361,7 +346,7 @@ margin_left = 12.3181
 margin_top = 3.1433
 margin_right = 1031.32
 margin_bottom = 140.143
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
 text = "EXONECUTE THE INNOCENT PARTY."
@@ -369,7 +354,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="White Screen" type="ColorRect" parent="DialogSystem"]
+[node name="White Screen" type="ColorRect" parent="Dialog System"]
 visible = false
 margin_left = -18.4998
 margin_top = -15.977
