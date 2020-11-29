@@ -1,16 +1,16 @@
 extends Node2D
 
 export(Color, RGB) var textcolor
+export(bool) var is_right_aligned
 
 onready var body = get_node("body")
 onready var nonbody = get_node("nonbody")
 onready var text_box = get_node("../Text Box")
 onready var voice = get_node("voice")
 onready var timer = get_node("../Timer")
-onready var area2D = get_node("Area2D")
+
 var anim
 var text
-
 var hiding
 
 func _ready():
@@ -40,7 +40,11 @@ func _on_mouse_exit():
 	get_parent().target = null
 	
 func act(line):
-	text.bbcode_text = "[color=#{hexcode}]{line}[/color]".format({"hexcode": textcolor.to_html(), "line": line})
+	if is_right_aligned:
+		text.bbcode_text = "[right][color=#{hexcode}]{line}[/color][/right]".format({"hexcode": textcolor.to_html(), "line": line})
+	else:
+		text.bbcode_text = "[color=#{hexcode}]{line}[/color]".format({"hexcode": textcolor.to_html(), "line": line})
+	
 	text.percent_visible = 0
 	for letter in line:
 		text.percent_visible += 1.0 / len(line)
@@ -55,7 +59,7 @@ func die():
 
 func enter_limelight():
 	if nonbody:
-		nonbody.show()
+		show()
 	if body:
 		text_box.show()
 		anim.modulate = Color(1, 1, 1)
@@ -64,7 +68,7 @@ func enter_limelight():
 	
 func exit_limelight():
 	if nonbody:
-		nonbody.hide()
+		hide()
 	if anim:
 		text_box.hide()
 		anim.modulate = Color(0, 0, 0)

@@ -9,7 +9,7 @@ var prev_color
 var next_color
 
 func _ready():
-	prev_color = Color(_clrf(), _clrf(), _clrf(), 1)
+	prev_color = Color(1, 1, 1, 1)
 	next_color = Color(_clrf(), _clrf(), _clrf(), 1)
 	while enabled:
 		tween.interpolate_property(self, "color", prev_color, next_color, duration)
