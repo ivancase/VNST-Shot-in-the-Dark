@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Button.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ChoiceBox.gd" type="Script" id=2]
+[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+outline_color = Color( 1, 0.321569, 0.466667, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 3 )
+
+[node name="Choice Box" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="instruction" type="RichTextLabel" parent="."]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 120.182
+margin_top = 1.8409
+margin_right = 972.182
+margin_bottom = 138.841
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[shake]SHOOT TO ASK A QUESTION."
+text = "SHOOT TO ASK A QUESTION."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="box2" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 370.0
+margin_top = 190.0
+margin_right = 705.0
+margin_bottom = 425.0
+color = Color( 0, 0, 0, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 382.0
+margin_top = 120.0
+margin_right = 643.0
+margin_bottom = 368.001
+color = Color( 0, 0, 0, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttons" type="Node2D" parent="."]
+modulate = Color( 0.752941, 0.796078, 0.862745, 1 )
+position = Vector2( -7, 0 )
+
+[node name="Button" type="Button" parent="buttons"]
+margin_left = 395.136
+margin_top = 194.106
+margin_right = 695.136
+margin_bottom = 240.106
+rect_pivot_offset = Vector2( 127.414, 39.5667 )
+custom_fonts/font = SubResource( 4 )
+action_mode = 0
+text = "Option 1"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button2" type="Button" parent="buttons"]
+margin_left = 395.136
+margin_top = 254.106
+margin_right = 695.136
+margin_bottom = 300.106
+rect_pivot_offset = Vector2( 127.414, 39.5667 )
+custom_fonts/font = SubResource( 4 )
+action_mode = 0
+text = "Option 2"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button3" type="Button" parent="buttons"]
+margin_left = 395.136
+margin_top = 314.106
+margin_right = 695.136
+margin_bottom = 360.106
+rect_pivot_offset = Vector2( 127.414, 39.5667 )
+custom_fonts/font = SubResource( 4 )
+disabled = true
+action_mode = 0
+text = "Option 3"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button4" type="Button" parent="buttons"]
+margin_left = 395.136
+margin_top = 374.106
+margin_right = 695.136
+margin_bottom = 420.106
+rect_pivot_offset = Vector2( 127.414, 39.5667 )
+custom_fonts/font = SubResource( 4 )
+disabled = true
+action_mode = 0
+text = "Option 4"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}

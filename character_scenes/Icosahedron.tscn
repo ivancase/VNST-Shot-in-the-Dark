@@ -1,0 +1,50 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://animations/icosahedron/icosahedron2.png" type="Texture" id=1]
+[ext_resource path="res://animations/icosahedron/icosahedron3.png" type="Texture" id=2]
+[ext_resource path="res://animations/icosahedron/icosahedron1.png" type="Texture" id=3]
+[ext_resource path="res://animations/icosahedron/icosahedron4.png" type="Texture" id=4]
+[ext_resource path="res://animations/icosahedron/icosahedron5.png" type="Texture" id=5]
+[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=6]
+[ext_resource path="res://animations/icosahedron/icosahedron6.png" type="Texture" id=7]
+[ext_resource path="res://animations/icosahedron/icosahedron7.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Actor.gd" type="Script" id=9]
+[ext_resource path="res://animations/icosahedron/icosahedron8.png" type="Texture" id=10]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=11]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 11 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="Icosahedron" type="Node2D"]
+script = ExtResource( 9 )
+textcolor = Color( 1, 0.321569, 0.466667, 1 )
+is_right_aligned = true
+
+[node name="body" type="Control" parent="."]
+margin_left = 705.0
+margin_top = 88.0
+margin_right = 1026.0
+margin_bottom = 599.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimatedSprite" parent="body"]
+material = SubResource( 6 )
+position = Vector2( 171.059, 255.072 )
+frames = SubResource( 7 )
+
+[node name="voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 1.59

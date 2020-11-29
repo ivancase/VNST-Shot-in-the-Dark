@@ -1,0 +1,49 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://shaders/outline.tres" type="Material" id=1]
+[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=2]
+[ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=3]
+[ext_resource path="res://animations/sphere/sphere4.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Actor.gd" type="Script" id=5]
+[ext_resource path="res://animations/sphere/sphere1.png" type="Texture" id=6]
+[ext_resource path="res://animations/sphere/sphere2.png" type="Texture" id=7]
+[ext_resource path="res://animations/sphere/sphere3.png" type="Texture" id=8]
+[ext_resource path="res://animations/sphere/sphere10.png" type="Texture" id=9]
+[ext_resource path="res://animations/sphere/sphere11.png" type="Texture" id=10]
+[ext_resource path="res://animations/sphere/sphere7.png" type="Texture" id=11]
+[ext_resource path="res://animations/sphere/sphere12.png" type="Texture" id=12]
+[ext_resource path="res://animations/sphere/sphere9.png" type="Texture" id=13]
+[ext_resource path="res://animations/sphere/sphere8.png" type="Texture" id=14]
+[ext_resource path="res://animations/sphere/sphere6.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Sphere" type="Node2D"]
+script = ExtResource( 5 )
+textcolor = Color( 0.388235, 0.780392, 0.301961, 1 )
+
+[node name="body" type="Control" parent="."]
+margin_left = 19.1622
+margin_top = 131.027
+margin_right = 366.162
+margin_bottom = 478.027
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimatedSprite" parent="body"]
+light_mask = -2147483647
+material = ExtResource( 1 )
+position = Vector2( 173.96, 164.687 )
+frames = SubResource( 8 )
+flip_h = true
+
+[node name="voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+pitch_scale = 0.57
