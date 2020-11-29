@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=1]
+[ext_resource path="res://sprites/pyramid.png" type="Texture" id=2]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=3]
+[ext_resource path="res://scripts/Pyramid.gd" type="Script" id=4]
+
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 3 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="Animation" id=11]
+resource_name = "Pyramid"
+length = 3.0
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.02, 0.32, 0.58, 0.88, 1.16, 1.4, 1.66, 2, 2.26, 2.52, 2.92 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 779, 242 ), Vector2( 718.419, 96.7835 ), Vector2( 849.427, 415.639 ), Vector2( 727.938, 300.214 ), Vector2( 870.099, 262.109 ), Vector2( 868.946, 6.28293 ), Vector2( 700.385, 434.328 ), Vector2( 738.482, 303.548 ), Vector2( 856.416, 384.335 ), Vector2( 789.33, 162.443 ), Vector2( 779, 242 ) ]
+}
+
+[node name="Pyramid" type="Node2D"]
+script = ExtResource( 4 )
+textcolor = Color( 0, 0.584314, 0.913725, 1 )
+
+[node name="body" type="Control" parent="."]
+margin_left = 779.0
+margin_top = 242.0
+margin_right = 927.0
+margin_bottom = 358.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="body"]
+material = SubResource( 12 )
+position = Vector2( 72.952, 55.9935 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="anim" type="AnimationPlayer" parent="body"]
+anims/Pyramid = SubResource( 11 )
+
+[node name="voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+pitch_scale = 0.57

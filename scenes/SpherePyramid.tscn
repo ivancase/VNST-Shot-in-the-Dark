@@ -1,36 +1,32 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://animations/icosahedron/icosahedron2.png" type="Texture" id=1]
-[ext_resource path="res://animations/icosahedron/icosahedron3.png" type="Texture" id=2]
-[ext_resource path="res://animations/icosahedron/icosahedron1.png" type="Texture" id=3]
-[ext_resource path="res://animations/icosahedron/icosahedron4.png" type="Texture" id=4]
-[ext_resource path="res://animations/icosahedron/icosahedron5.png" type="Texture" id=5]
-[ext_resource path="res://animations/icosahedron/icosahedron6.png" type="Texture" id=6]
-[ext_resource path="res://animations/icosahedron/icosahedron7.png" type="Texture" id=7]
+[ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://shaders/outline.tres" type="Material" id=2]
+[ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=4]
+[ext_resource path="res://character_scenes/Text Box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=6]
+[ext_resource path="res://animations/sphere/sphere4.png" type="Texture" id=7]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://scripts/SphereIcosa.gd" type="Script" id=9]
-[ext_resource path="res://animations/icosahedron/icosahedron8.png" type="Texture" id=10]
-[ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=11]
-[ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
-[ext_resource path="res://shaders/outline.tres" type="Material" id=13]
+[ext_resource path="res://scripts/SpherePyramid.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Actor.gd" type="Script" id=10]
+[ext_resource path="res://animations/sphere/sphere1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/pyramid.png" type="Texture" id=12]
+[ext_resource path="res://animations/sphere/sphere2.png" type="Texture" id=13]
 [ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
-[ext_resource path="res://animations/sphere/sphere4.png" type="Texture" id=15]
-[ext_resource path="res://animations/sphere/sphere1.png" type="Texture" id=16]
-[ext_resource path="res://animations/sphere/sphere2.png" type="Texture" id=17]
-[ext_resource path="res://animations/sphere/sphere3.png" type="Texture" id=18]
-[ext_resource path="res://animations/sphere/sphere10.png" type="Texture" id=19]
-[ext_resource path="res://animations/sphere/sphere11.png" type="Texture" id=20]
-[ext_resource path="res://animations/sphere/sphere7.png" type="Texture" id=21]
-[ext_resource path="res://animations/sphere/sphere12.png" type="Texture" id=22]
-[ext_resource path="res://animations/sphere/sphere9.png" type="Texture" id=23]
-[ext_resource path="res://animations/sphere/sphere8.png" type="Texture" id=24]
-[ext_resource path="res://animations/sphere/sphere6.png" type="Texture" id=25]
+[ext_resource path="res://animations/sphere/sphere3.png" type="Texture" id=15]
+[ext_resource path="res://animations/sphere/sphere10.png" type="Texture" id=16]
+[ext_resource path="res://animations/sphere/sphere11.png" type="Texture" id=17]
+[ext_resource path="res://animations/sphere/sphere7.png" type="Texture" id=18]
+[ext_resource path="res://animations/sphere/sphere12.png" type="Texture" id=19]
+[ext_resource path="res://animations/sphere/sphere9.png" type="Texture" id=20]
+[ext_resource path="res://animations/sphere/sphere8.png" type="Texture" id=21]
+[ext_resource path="res://animations/sphere/sphere6.png" type="Texture" id=22]
+[ext_resource path="res://scripts/Pyramid.gd" type="Script" id=23]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=24]
 [ext_resource path="res://animations/background/anim_background2.png" type="Texture" id=26]
-[ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=27]
 [ext_resource path="res://animations/background/anim_background1.png" type="Texture" id=29]
-[ext_resource path="res://shaders/outline.shader" type="Shader" id=30]
 [ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=31]
-[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=32]
 [ext_resource path="res://animations/background/anim_background3.png" type="Texture" id=33]
 [ext_resource path="res://animations/background/anim_background4.png" type="Texture" id=34]
 [ext_resource path="res://animations/background/anim_background6.png" type="Texture" id=35]
@@ -41,8 +37,6 @@
 [ext_resource path="res://animations/background/anim_background7.png" type="Texture" id=40]
 [ext_resource path="res://animations/background/anim_background9.png" type="Texture" id=41]
 [ext_resource path="res://sprites/clock1.png" type="Texture" id=42]
-[ext_resource path="res://character_scenes/Text Box.tscn" type="PackedScene" id=44]
-[ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=45]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -55,27 +49,37 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 30 )
-shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
-shader_param/width = 2.0
-shader_param/enabled = false
-
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 24 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="Animation" id=5]
+resource_name = "Pyramid"
+length = 3.0
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.02, 0.32, 0.58, 0.88, 1.16, 1.4, 1.66, 2, 2.26, 2.52, 2.92 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 779, 242 ), Vector2( 718.419, 96.7835 ), Vector2( 849.427, 415.639 ), Vector2( 727.938, 300.214 ), Vector2( 870.099, 262.109 ), Vector2( 868.946, 6.28293 ), Vector2( 700.385, 434.328 ), Vector2( 738.482, 303.548 ), Vector2( 856.416, 384.335 ), Vector2( 789.33, 162.443 ), Vector2( 779, 242 ) ]
+}
 
 [sub_resource type="DynamicFont" id=6]
 size = 60
@@ -105,42 +109,18 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 9
+frame = 10
 speed_scale = 0.1
 playing = true
 centered = false
 
-[node name="Choice Box" parent="." instance=ExtResource( 45 )]
+[node name="Choice Box" parent="." instance=ExtResource( 3 )]
 
-[node name="Text Box" parent="." instance=ExtResource( 44 )]
-
-[node name="Icosahedron" type="Node2D" parent="."]
-script = ExtResource( 12 )
-next_scene = "res://scenes/SpherePyramid.tscn"
-textcolor = Color( 1, 0.321569, 0.466667, 1 )
-is_right_aligned = true
-
-[node name="body" type="Control" parent="Icosahedron"]
-margin_left = 705.0
-margin_top = 88.0
-margin_right = 1026.0
-margin_bottom = 599.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="anim" type="AnimatedSprite" parent="Icosahedron/body"]
-material = SubResource( 3 )
-position = Vector2( 171.059, 255.072 )
-frames = SubResource( 4 )
-
-[node name="voice" type="AudioStreamPlayer" parent="Icosahedron"]
-stream = ExtResource( 32 )
-pitch_scale = 1.59
+[node name="Text Box" parent="." instance=ExtResource( 5 )]
 
 [node name="Sphere" type="Node2D" parent="."]
-script = ExtResource( 12 )
-next_scene = "res://scenes/TorusIcosa.tscn"
+script = ExtResource( 10 )
+next_scene = "res://scenes/TorusPyramid.tscn"
 textcolor = Color( 0.388235, 0.780392, 0.301961, 1 )
 
 [node name="body" type="Control" parent="Sphere"]
@@ -154,16 +134,44 @@ __meta__ = {
 
 [node name="anim" type="AnimatedSprite" parent="Sphere/body"]
 light_mask = -2147483647
-material = ExtResource( 13 )
+material = ExtResource( 2 )
 position = Vector2( 173.96, 164.687 )
-frames = SubResource( 5 )
+frames = SubResource( 3 )
 flip_h = true
 
 [node name="voice" type="AudioStreamPlayer" parent="Sphere"]
-stream = ExtResource( 32 )
+stream = ExtResource( 4 )
 pitch_scale = 0.57
 
-[node name="Narrator" parent="." instance=ExtResource( 27 )]
+[node name="Pyramid" type="Node2D" parent="."]
+script = ExtResource( 23 )
+next_scene = "res://scenes/SphereTorus.tscn"
+textcolor = Color( 0, 0.584314, 0.913725, 1 )
+is_right_aligned = true
+
+[node name="body" type="Control" parent="Pyramid"]
+margin_left = 779.0
+margin_top = 242.0
+margin_right = 927.0
+margin_bottom = 358.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="Pyramid/body"]
+material = SubResource( 4 )
+position = Vector2( 72.952, 55.9935 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 12 )
+
+[node name="anim" type="AnimationPlayer" parent="Pyramid/body"]
+anims/Pyramid = SubResource( 5 )
+
+[node name="voice" type="AudioStreamPlayer" parent="Pyramid"]
+stream = ExtResource( 4 )
+pitch_scale = 0.57
+
+[node name="Narrator" parent="." instance=ExtResource( 1 )]
 
 [node name="Tween" type="Tween" parent="."]
 

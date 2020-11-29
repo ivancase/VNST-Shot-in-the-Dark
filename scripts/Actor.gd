@@ -1,5 +1,6 @@
 extends Node2D
 
+export(String, FILE, "*.tscn,*.scn") var next_scene
 export(Color, RGB) var textcolor
 export(bool) var is_right_aligned
 
@@ -14,6 +15,9 @@ var text
 var hiding
 
 func _ready():
+	_onready()
+
+func _onready():
 	if nonbody:
 		text = nonbody.get_node("text")
 	if body:
@@ -55,12 +59,12 @@ func act(line):
 	text.percent_visible = 1
 
 func die():
-	print("dead.")
+	get_tree().change_scene(next_scene)
 
 func enter_limelight():
 	if nonbody:
 		show()
-	if body:
+	if anim:
 		text_box.show()
 		anim.modulate = Color(1, 1, 1)
 		anim.playing = true

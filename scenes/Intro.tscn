@@ -10,7 +10,7 @@
 [ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=32]
 [ext_resource path="res://sprites/clock1.png" type="Texture" id=42]
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform vec4 outline_color : hint_color;
@@ -34,8 +34,8 @@ void fragment() {
 	COLOR = vec4(final_color.rgb, clamp(abs(alpha) + sprite_color.a, 0.0, 1.0));
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
@@ -94,7 +94,7 @@ __meta__ = {
 stream = ExtResource( 2 )
 
 [node name="body" type="TextureRect" parent="Clock"]
-material = SubResource( 6 )
+material = SubResource( 2 )
 anchor_left = 0.5
 anchor_top = 0.4
 anchor_right = 0.5

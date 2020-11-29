@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pyramid.png-21d9e9ffc48fa9429f47ff3f8cd15e31.stex"
+path="res://.import/torus8.png-4c572b1fafe7e2105ac7495e2c794352.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/pyramid.png"
-dest_files=[ "res://.import/pyramid.png-21d9e9ffc48fa9429f47ff3f8cd15e31.stex" ]
+source_file="res://animations/torus/torus8.png"
+dest_files=[ "res://.import/torus8.png-4c572b1fafe7e2105ac7495e2c794352.stex" ]
 
 [params]
 

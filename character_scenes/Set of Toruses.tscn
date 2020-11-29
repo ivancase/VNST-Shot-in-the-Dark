@@ -1,0 +1,94 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://animations/torus/torus5.png" type="Texture" id=1]
+[ext_resource path="res://animations/torus/torus6.png" type="Texture" id=2]
+[ext_resource path="res://animations/torus/torus13.png" type="Texture" id=3]
+[ext_resource path="res://animations/torus/torus14.png" type="Texture" id=4]
+[ext_resource path="res://animations/torus/torus16.png" type="Texture" id=5]
+[ext_resource path="res://animations/torus/torus17.png" type="Texture" id=6]
+[ext_resource path="res://animations/torus/torus18.png" type="Texture" id=7]
+[ext_resource path="res://animations/torus/torus11.png" type="Texture" id=8]
+[ext_resource path="res://animations/torus/torus8.png" type="Texture" id=9]
+[ext_resource path="res://animations/torus/torus15.png" type="Texture" id=10]
+[ext_resource path="res://animations/torus/torus19.png" type="Texture" id=11]
+[ext_resource path="res://animations/torus/torus4.png" type="Texture" id=12]
+[ext_resource path="res://animations/torus/torus7.png" type="Texture" id=13]
+[ext_resource path="res://animations/torus/torus9.png" type="Texture" id=14]
+[ext_resource path="res://animations/torus/torus10.png" type="Texture" id=15]
+[ext_resource path="res://animations/torus/torus12.png" type="Texture" id=16]
+[ext_resource path="res://animations/torus/torus2.png" type="Texture" id=17]
+[ext_resource path="res://animations/torus/torus3.png" type="Texture" id=18]
+[ext_resource path="res://animations/torus/torus1.png" type="Texture" id=19]
+[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=20]
+[ext_resource path="res://animations/torus/torus21.png" type="Texture" id=21]
+[ext_resource path="res://animations/torus/torus22.png" type="Texture" id=22]
+[ext_resource path="res://animations/torus/torus23.png" type="Texture" id=23]
+[ext_resource path="res://animations/torus/torus20.png" type="Texture" id=24]
+[ext_resource path="res://animations/torus/torus26.png" type="Texture" id=25]
+[ext_resource path="res://animations/torus/torus27.png" type="Texture" id=26]
+[ext_resource path="res://animations/torus/torus25.png" type="Texture" id=27]
+[ext_resource path="res://animations/torus/torus29.png" type="Texture" id=28]
+[ext_resource path="res://animations/torus/torus24.png" type="Texture" id=29]
+[ext_resource path="res://animations/torus/torus28.png" type="Texture" id=30]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=31]
+[ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=32]
+[ext_resource path="res://scripts/Set of Toruses.gd" type="Script" id=33]
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 31 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 16 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 31 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 31 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[node name="Set of Toruses" type="Node2D"]
+script = ExtResource( 33 )
+textcolor = Color( 0.709804, 0.313726, 0.533333, 1 )
+
+[node name="body" type="Control" parent="."]
+margin_left = 66.1149
+margin_top = 105.843
+margin_right = 302.115
+margin_bottom = 404.843
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="top" type="AnimatedSprite" parent="body"]
+material = SubResource( 10 )
+position = Vector2( 114.548, 82.1058 )
+frames = SubResource( 11 )
+
+[node name="right" type="AnimatedSprite" parent="body"]
+material = SubResource( 3 )
+position = Vector2( 180.619, 202.922 )
+frames = SubResource( 11 )
+
+[node name="left" type="AnimatedSprite" parent="body"]
+material = SubResource( 4 )
+position = Vector2( 54.1405, 202.922 )
+frames = SubResource( 11 )
+
+[node name="voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+pitch_scale = 2.35
+script = ExtResource( 32 )
