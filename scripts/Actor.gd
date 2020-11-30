@@ -10,11 +10,11 @@ onready var text_box = get_node("../Text Box")
 onready var voice = get_node("voice")
 onready var timer = get_node("../Timer")
 onready var tween = get_node("../Tween")
-onready var white_screen = get_node("../White Screen")
+#onready var white_screen = get_node("../White Screen")
 
 var anim
 var text
-var hiding
+var mouse_over
 
 func _ready():
 	_onready()
@@ -28,20 +28,20 @@ func _onready():
 	exit_limelight()
 	
 func _on_mouse_enter():
+	mouse_over = true
 	if !shootable:
 		return
 		
-	if hiding:
-		anim.modulate = Color(1, 1, 1)
-		anim.playing = true
+	anim.modulate = Color(1, 1, 1)
+	anim.playing = true
 	anim.get_material().set_shader_param("enabled", true)
 	get_parent().target = self
 	
 
 func _on_mouse_exit():
-	if hiding:
-		anim.modulate = Color(0, 0, 0)
-		anim.playing = false
+	mouse_over = false
+	anim.modulate = Color(0, 0, 0)
+	anim.playing = false
 	anim.get_material().set_shader_param("enabled", false)
 	get_parent().target = null
 	
@@ -61,26 +61,25 @@ func act(line):
 	text.percent_visible = 1
 
 func die():
+	mouse_over = false
+	shootable = false
+	
 	exit_limelight()
 	#anim.modulate = Color(10, 10, 10)
-	hiding = false
 	
-	tween.interpolate_property(body, "rect_position", body.rect_position, body.rect_position + Vector2(0, 600), 1, Tween.TRANS_LINEAR)
+	tween.interpolate_property(body, "rect_position", body.rect_position, body.rect_position + Vector2(0, 800), 1.5, Tween.TRANS_LINEAR)
 	tween.start()
 	yield(tween, "tween_completed")
 		
 	get_tree().change_scene(next_scene)
 
 func enter_limelight():
-	if anim:
-		text_box.show()
-		anim.modulate = Color(1, 1, 1)
-		anim.playing = true
-		hiding = false
+	text_box.show()
+	anim.modulate = Color(1, 1, 1)
+	anim.playing = true
 	
 func exit_limelight():
-	if anim:
-		text_box.hide()
+	text_box.hide()
+	if !mouse_over:
 		anim.modulate = Color(0, 0, 0)
 		anim.playing = false
-		hiding = true

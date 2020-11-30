@@ -22,27 +22,26 @@ func _process(delta):
 			_on_mouse_exit()
 	
 func _on_mouse_enter():
+	mouse_over = true
 	if !shootable:
 		return
 	
-	if hiding:
-		sprite.modulate = Color(1, 1, 1)
+	sprite.modulate = Color(1, 1, 1)
 	sprite.get_material().set_shader_param("enabled", true)
 	get_parent().target = self
 	
 
 func _on_mouse_exit():
-	if hiding:
-		sprite.modulate = Color(0, 0, 0)
+	mouse_over = false
+	sprite.modulate = Color(0, 0, 0)
 	sprite.get_material().set_shader_param("enabled", false)
 	get_parent().target = null
 
 func enter_limelight():
 	text_box.show()
 	sprite.modulate = Color(1, 1, 1)
-	hiding = false
 	
 func exit_limelight():
 	text_box.hide()
-	sprite.modulate = Color(0, 0, 0)
-	hiding = true
+	if !mouse_over:
+		sprite.modulate = Color(0, 0, 0)

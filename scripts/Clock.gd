@@ -1,7 +1,5 @@
 extends "res://scripts/Actor.gd"
 
-var mouse_over
-
 func _onready():
 	hide()
 	body.connect("mouse_entered", self, "_on_mouse_enter")

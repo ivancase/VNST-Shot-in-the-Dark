@@ -9,5 +9,6 @@ func end():
 		get_tree().change_scene("res://scenes/Restart.tscn")
 	
 func direct_scene(intro, _scripts):
+	fade_in()
 	yield(play_dialogue(intro), "completed")
 	end()

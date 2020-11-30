@@ -110,7 +110,6 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 2
 speed_scale = 0.1
 playing = true
 centered = false

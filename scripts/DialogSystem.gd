@@ -50,14 +50,18 @@ func parse_script(script):
 func end():
 	pass
 	
-func fade(fade_in):
-	var fade_time = 2
-	
+func fade_in():
 	white_screen.show()
-	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), fade_time)
+	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 1), Color(0, 0, 0, 0), 2)
+	tween.start()
+
+func fade_out():
+	white_screen.show()
+	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), 2)
 	tween.start()
 	
 func direct_scene(intro, scripts):
+	fade_in()
 	yield(play_dialogue(intro), "completed")
 	while choicebox.any_enabled():
 		choicebox.show()
