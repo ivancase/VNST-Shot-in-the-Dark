@@ -34,13 +34,13 @@
 [ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=32]
 [ext_resource path="res://scripts/Set of Toruses.gd" type="Script" id=33]
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 31 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 16 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 28 ) ],
 "loop": true,
@@ -65,28 +65,28 @@ script = ExtResource( 33 )
 textcolor = Color( 0.709804, 0.313726, 0.533333, 1 )
 
 [node name="body" type="Control" parent="."]
-margin_left = 66.1149
-margin_top = 105.843
-margin_right = 302.115
-margin_bottom = 404.843
+margin_left = 69.2933
+margin_top = 153.519
+margin_right = 305.293
+margin_bottom = 452.519
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="top" type="AnimatedSprite" parent="body"]
-material = SubResource( 10 )
+material = SubResource( 1 )
 position = Vector2( 114.548, 82.1058 )
-frames = SubResource( 11 )
+frames = SubResource( 2 )
 
 [node name="right" type="AnimatedSprite" parent="body"]
 material = SubResource( 3 )
 position = Vector2( 180.619, 202.922 )
-frames = SubResource( 11 )
+frames = SubResource( 2 )
 
 [node name="left" type="AnimatedSprite" parent="body"]
 material = SubResource( 4 )
 position = Vector2( 54.1405, 202.922 )
-frames = SubResource( 11 )
+frames = SubResource( 2 )
 
 [node name="voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )

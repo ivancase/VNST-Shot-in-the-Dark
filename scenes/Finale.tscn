@@ -1,0 +1,449 @@
+[gd_scene load_steps=83 format=2]
+
+[ext_resource path="res://animations/icosahedron/icosahedron2.png" type="Texture" id=1]
+[ext_resource path="res://sounds/ticksound.wav" type="AudioStream" id=2]
+[ext_resource path="res://scripts/Clock.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Narrator.gd" type="Script" id=4]
+[ext_resource path="res://animations/icosahedron/icosahedron5.png" type="Texture" id=5]
+[ext_resource path="res://animations/icosahedron/icosahedron6.png" type="Texture" id=6]
+[ext_resource path="res://animations/icosahedron/icosahedron7.png" type="Texture" id=7]
+[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scripts/Finale.gd" type="Script" id=9]
+[ext_resource path="res://animations/icosahedron/icosahedron8.png" type="Texture" id=10]
+[ext_resource path="res://sprites/circle.png" type="Texture" id=11]
+[ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
+[ext_resource path="res://shaders/outline.tres" type="Material" id=13]
+[ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
+[ext_resource path="res://sprites/clock4.png" type="Texture" id=15]
+[ext_resource path="res://animations/icosahedron/icosahedron3.png" type="Texture" id=16]
+[ext_resource path="res://animations/icosahedron/icosahedron1.png" type="Texture" id=17]
+[ext_resource path="res://animations/icosahedron/icosahedron4.png" type="Texture" id=18]
+[ext_resource path="res://animations/background/anim_background2.png" type="Texture" id=26]
+[ext_resource path="res://animations/torus/torus2.png" type="Texture" id=28]
+[ext_resource path="res://animations/background/anim_background1.png" type="Texture" id=29]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=30]
+[ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=31]
+[ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=32]
+[ext_resource path="res://animations/background/anim_background3.png" type="Texture" id=33]
+[ext_resource path="res://animations/background/anim_background4.png" type="Texture" id=34]
+[ext_resource path="res://animations/background/anim_background6.png" type="Texture" id=35]
+[ext_resource path="res://animations/background/anim_background8.png" type="Texture" id=36]
+[ext_resource path="res://animations/background/anim_background11.png" type="Texture" id=37]
+[ext_resource path="res://animations/background/anim_background10.png" type="Texture" id=38]
+[ext_resource path="res://animations/background/anim_background5.png" type="Texture" id=39]
+[ext_resource path="res://animations/background/anim_background7.png" type="Texture" id=40]
+[ext_resource path="res://animations/background/anim_background9.png" type="Texture" id=41]
+[ext_resource path="res://animations/torus/torus3.png" type="Texture" id=43]
+[ext_resource path="res://character_scenes/Text Box.tscn" type="PackedScene" id=44]
+[ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=45]
+[ext_resource path="res://animations/torus/torus25.png" type="Texture" id=46]
+[ext_resource path="res://animations/torus/torus22.png" type="Texture" id=47]
+[ext_resource path="res://animations/torus/torus14.png" type="Texture" id=48]
+[ext_resource path="res://animations/torus/torus19.png" type="Texture" id=49]
+[ext_resource path="res://animations/torus/torus12.png" type="Texture" id=50]
+[ext_resource path="res://animations/torus/torus16.png" type="Texture" id=51]
+[ext_resource path="res://animations/torus/torus15.png" type="Texture" id=52]
+[ext_resource path="res://animations/torus/torus5.png" type="Texture" id=53]
+[ext_resource path="res://animations/torus/torus8.png" type="Texture" id=54]
+[ext_resource path="res://animations/torus/torus7.png" type="Texture" id=55]
+[ext_resource path="res://animations/torus/torus9.png" type="Texture" id=56]
+[ext_resource path="res://animations/torus/torus10.png" type="Texture" id=57]
+[ext_resource path="res://animations/torus/torus21.png" type="Texture" id=58]
+[ext_resource path="res://animations/torus/torus23.png" type="Texture" id=59]
+[ext_resource path="res://animations/torus/torus20.png" type="Texture" id=60]
+[ext_resource path="res://animations/torus/torus4.png" type="Texture" id=61]
+[ext_resource path="res://animations/torus/torus26.png" type="Texture" id=62]
+[ext_resource path="res://animations/torus/torus13.png" type="Texture" id=63]
+[ext_resource path="res://animations/torus/torus6.png" type="Texture" id=64]
+[ext_resource path="res://animations/torus/torus17.png" type="Texture" id=65]
+[ext_resource path="res://animations/torus/torus11.png" type="Texture" id=66]
+[ext_resource path="res://animations/torus/torus1.png" type="Texture" id=67]
+[ext_resource path="res://animations/torus/torus27.png" type="Texture" id=68]
+[ext_resource path="res://animations/torus/torus29.png" type="Texture" id=69]
+[ext_resource path="res://animations/torus/torus18.png" type="Texture" id=70]
+[ext_resource path="res://animations/torus/torus24.png" type="Texture" id=71]
+[ext_resource path="res://animations/torus/torus28.png" type="Texture" id=72]
+[ext_resource path="res://sprites/pyramid.png" type="Texture" id=73]
+[ext_resource path="res://scripts/Pyramid.gd" type="Script" id=74]
+[ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=75]
+[ext_resource path="res://scripts/Set of Toruses.gd" type="Script" id=76]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 3
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Shader" id=13]
+code = "shader_type canvas_item;
+
+uniform vec4 outline_color : hint_color;
+
+uniform float width = 2.0;
+uniform bool enabled = false;
+
+void fragment() {
+	float size_x = 1.0 / float(textureSize(TEXTURE, 0).x) * width * float(enabled);
+	float size_y= 1.0 / float(textureSize(TEXTURE, 0).y) * width * float(enabled);
+	vec4 sprite_color = texture(TEXTURE, UV);
+	float alpha = -4.0 * sprite_color.a;
+	
+	alpha += texture(TEXTURE, UV + vec2(size_x, 0)).a;
+	alpha += texture(TEXTURE, UV + vec2(-size_x, 0)).a;
+	alpha += texture(TEXTURE, UV + vec2(0, size_y)).a;
+	alpha += texture(TEXTURE, UV + vec2(0, -size_y)).a;
+	
+	vec4 final_color = mix(sprite_color, outline_color, clamp(alpha, 0.0, 1.0));
+	
+	COLOR = vec4(final_color.rgb, clamp(abs(alpha) + sprite_color.a, 0.0, 1.0));
+}"
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = SubResource( 13 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 30 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 1 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 30 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 67 ), ExtResource( 28 ), ExtResource( 43 ), ExtResource( 61 ), ExtResource( 53 ), ExtResource( 64 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 66 ), ExtResource( 50 ), ExtResource( 63 ), ExtResource( 48 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 65 ), ExtResource( 70 ), ExtResource( 49 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 47 ), ExtResource( 59 ), ExtResource( 71 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 68 ), ExtResource( 72 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 30 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 30 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 30 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="Animation" id=16]
+resource_name = "Pyramid"
+length = 2.33333
+loop = true
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.16667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 779, 242 ), Vector2( 779, 224.041 ) ]
+}
+
+[sub_resource type="DynamicFont" id=18]
+size = 30
+outline_color = Color( 1, 0.321569, 0.466667, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 60
+outline_color = Color( 1, 0.321569, 0.466667, 1 )
+font_data = ExtResource( 8 )
+
+[node name="Scene" type="Control"]
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color Shift" type="ColorRect" parent="."]
+margin_left = -56.31
+margin_top = -33.401
+margin_right = 1084.69
+margin_bottom = 666.599
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+duration = 5.0
+
+[node name="Tween" type="Tween" parent="Color Shift"]
+
+[node name="blapck" type="ColorRect" parent="."]
+margin_left = -56.31
+margin_top = -33.401
+margin_right = 1084.69
+margin_bottom = 666.599
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="AnimatedSprite" parent="."]
+visible = false
+material = SubResource( 1 )
+position = Vector2( 0, -210 )
+frames = SubResource( 2 )
+frame = 8
+speed_scale = 0.1
+playing = true
+centered = false
+
+[node name="Clock" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 3 )
+next_scene = "res://scenes/SphereIcosa.tscn"
+shootable = false
+
+[node name="voice" type="AudioStreamPlayer" parent="Clock"]
+stream = ExtResource( 2 )
+
+[node name="body" type="TextureRect" parent="Clock"]
+material = SubResource( 14 )
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_left = 446.954
+margin_top = 177.472
+margin_right = 478.954
+margin_bottom = 209.472
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choice Box" parent="." instance=ExtResource( 45 )]
+visible = false
+
+[node name="Text Box" parent="." instance=ExtResource( 44 )]
+
+[node name="Icosahedron" type="Node2D" parent="."]
+script = ExtResource( 12 )
+next_scene = "res://scenes/SpherePyramid.tscn"
+textcolor = Color( 1, 0.321569, 0.466667, 1 )
+is_right_aligned = true
+shootable = false
+
+[node name="body" type="Control" parent="Icosahedron"]
+margin_left = 705.0
+margin_top = 88.0
+margin_right = 1026.0
+margin_bottom = 599.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimatedSprite" parent="Icosahedron/body"]
+material = SubResource( 3 )
+position = Vector2( 171.059, 255.072 )
+frames = SubResource( 4 )
+
+[node name="voice" type="AudioStreamPlayer" parent="Icosahedron"]
+stream = ExtResource( 32 )
+pitch_scale = 1.59
+
+[node name="Sphere" type="Node2D" parent="."]
+script = ExtResource( 12 )
+next_scene = "res://scenes/TorusIcosa.tscn"
+textcolor = Color( 0.388235, 0.780392, 0.301961, 1 )
+shootable = false
+
+[node name="body" type="Control" parent="Sphere"]
+margin_left = 19.1622
+margin_top = 131.027
+margin_right = 366.162
+margin_bottom = 478.027
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimatedSprite" parent="Sphere/body"]
+light_mask = -2147483647
+material = ExtResource( 13 )
+position = Vector2( 173.96, 164.687 )
+frames = SubResource( 5 )
+
+[node name="voice" type="AudioStreamPlayer" parent="Sphere"]
+stream = ExtResource( 32 )
+pitch_scale = 0.57
+
+[node name="Set of Toruses" type="Node2D" parent="."]
+script = ExtResource( 76 )
+textcolor = Color( 0.709804, 0.313726, 0.533333, 1 )
+shootable = false
+
+[node name="body" type="Control" parent="Set of Toruses"]
+margin_left = 82.0212
+margin_top = 153.519
+margin_right = 318.021
+margin_bottom = 452.519
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="top" type="AnimatedSprite" parent="Set of Toruses/body"]
+material = SubResource( 6 )
+position = Vector2( 114.548, 82.1058 )
+frames = SubResource( 7 )
+
+[node name="right" type="AnimatedSprite" parent="Set of Toruses/body"]
+material = SubResource( 8 )
+position = Vector2( 180.619, 202.922 )
+frames = SubResource( 7 )
+
+[node name="left" type="AnimatedSprite" parent="Set of Toruses/body"]
+material = SubResource( 9 )
+position = Vector2( 54.1405, 202.922 )
+frames = SubResource( 7 )
+
+[node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
+stream = ExtResource( 32 )
+pitch_scale = 2.35
+script = ExtResource( 75 )
+
+[node name="Pyramid" type="Node2D" parent="."]
+script = ExtResource( 74 )
+textcolor = Color( 0, 0.584314, 0.913725, 1 )
+shootable = false
+
+[node name="body" type="Control" parent="Pyramid"]
+margin_left = 779.0
+margin_top = 242.0
+margin_right = 927.0
+margin_bottom = 357.997
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="Pyramid/body"]
+material = SubResource( 15 )
+position = Vector2( 72.952, 55.9935 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 73 )
+
+[node name="anim" type="AnimationPlayer" parent="Pyramid/body"]
+anims/Pyramid = SubResource( 16 )
+
+[node name="voice" type="AudioStreamPlayer" parent="Pyramid"]
+stream = ExtResource( 32 )
+pitch_scale = 0.57
+
+[node name="Narrator" type="Node2D" parent="."]
+script = ExtResource( 4 )
+textcolor = Color( 0.996078, 0.905882, 0.380392, 1 )
+
+[node name="body" type="Control" parent="Narrator"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="box" type="ColorRect" parent="Narrator/body"]
+margin_left = 208.0
+margin_top = 420.0
+margin_right = 816.0
+margin_bottom = 567.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="RichTextLabel" parent="Narrator/body"]
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 219.0
+margin_top = 425.68
+margin_right = 814.0
+margin_bottom = 562.68
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 18 )
+bbcode_enabled = true
+bbcode_text = "this is a test !!"
+text = "this is a test !!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="voice" type="AudioStreamPlayer" parent="Narrator"]
+stream = ExtResource( 32 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = -15.0
+pitch_scale = 0.9
+
+[node name="Exonecute Text" type="RichTextLabel" parent="."]
+visible = false
+anchor_top = -0.017
+anchor_bottom = -0.017
+margin_left = 12.3181
+margin_top = 13.3433
+margin_right = 1031.32
+margin_bottom = 150.343
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
+text = "EXONECUTE THE INNOCENT PARTY."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="White Screen" type="ColorRect" parent="."]
+visible = false
+margin_left = -18.4998
+margin_top = -15.977
+margin_right = 1039.5
+margin_bottom = 614.023
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

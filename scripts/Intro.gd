@@ -2,8 +2,6 @@ extends "res://scripts/DialogSystem.gd"
 
 onready var clock = get_node("Clock")
 onready var narrator = get_node("Narrator")
-onready var exonecute_text = get_node("Exonecute Text")
-onready var color_shift = get_node("Color Shift")
 
 func _ready():
 	key = {"n" : narrator, "c" : clock}
@@ -13,6 +11,8 @@ func _ready():
 	
 func end():
 	clock.shootable = true
+	if clock.mouse_over:
+		clock._on_mouse_enter()
 	
 func direct_scene(intro, _scripts):
 	yield(play_dialogue(intro), "completed")

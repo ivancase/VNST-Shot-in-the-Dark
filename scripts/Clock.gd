@@ -1,35 +1,30 @@
-extends Control
+extends "res://scripts/Actor.gd"
 
-onready var body = get_node("body")
-onready var ticksound = get_node("ticksound")
-onready var timer = get_node("../Timer")
+var mouse_over
 
-var shootable
-
-func _ready():
+func _onready():
+	hide()
 	body.connect("mouse_entered", self, "_on_mouse_enter")
 	body.connect("mouse_exited", self, "_on_mouse_exit")
 	
 func _on_mouse_enter():
+	mouse_over = true
 	if shootable:
 		body.get_material().set_shader_param("enabled", true)
 		get_parent().target = self
 	
 
 func _on_mouse_exit():
+	mouse_over = false
 	if shootable:
 		body.get_material().set_shader_param("enabled", false)
 		get_parent().target = null
 		
 func act(line):
 	print(line)
-	ticksound.play()
+	voice.play()
 	timer.start()
 	yield(timer, "timeout")
-
-	
-func die():
-	get_tree().change_scene("res://scenes/SphereIcosa.tscn")
 	
 func enter_limelight():
 	show()

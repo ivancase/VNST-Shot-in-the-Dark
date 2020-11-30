@@ -3,12 +3,14 @@ extends Node2D
 export(String, FILE, "*.tscn,*.scn") var next_scene
 export(Color, RGB) var textcolor
 export(bool) var is_right_aligned
+export(bool) var shootable = true
 
 onready var body = get_node("body")
-onready var nonbody = get_node("nonbody")
 onready var text_box = get_node("../Text Box")
 onready var voice = get_node("voice")
 onready var timer = get_node("../Timer")
+onready var tween = get_node("../Tween")
+onready var white_screen = get_node("../White Screen")
 
 var anim
 var text
@@ -18,17 +20,17 @@ func _ready():
 	_onready()
 
 func _onready():
-	if nonbody:
-		text = nonbody.get_node("text")
-	if body:
-		text = text_box.get_node("text")
-		anim = body.get_node("anim")
-		body.connect("mouse_entered", self, "_on_mouse_enter")
-		body.connect("mouse_exited", self, "_on_mouse_exit")
+	text = text_box.get_node("text")
+	anim = body.get_node("anim")
+	body.connect("mouse_entered", self, "_on_mouse_enter")
+	body.connect("mouse_exited", self, "_on_mouse_exit")
 		
 	exit_limelight()
 	
 func _on_mouse_enter():
+	if !shootable:
+		return
+		
 	if hiding:
 		anim.modulate = Color(1, 1, 1)
 		anim.playing = true
@@ -59,11 +61,17 @@ func act(line):
 	text.percent_visible = 1
 
 func die():
+	exit_limelight()
+	hiding = false
+	
+	#var fade_time = 2
+	#tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), fade_time, Tween.TRANS_LINEAR)
+	#tween.start()
+	#yield(tween, "tween_completed")
+		
 	get_tree().change_scene(next_scene)
 
 func enter_limelight():
-	if nonbody:
-		show()
 	if anim:
 		text_box.show()
 		anim.modulate = Color(1, 1, 1)
@@ -71,8 +79,6 @@ func enter_limelight():
 		hiding = false
 	
 func exit_limelight():
-	if nonbody:
-		hide()
 	if anim:
 		text_box.hide()
 		anim.modulate = Color(0, 0, 0)

@@ -32,13 +32,18 @@ func get_choice():
 	
 func populate(choices):
 	var index = 0
-	for label in choices:
-		buttons[index].text = label
+	for b in buttons:
+		if index == len(choices):
+			return
+		b.text = choices[index]
+		b.disabled = false
+		b.should_show = true
 		index += 1
 		
 func show():
 	for b in buttons:
-		b.show()
+		if b.should_show:
+			b.show()
 	.show()
 
 func hide():

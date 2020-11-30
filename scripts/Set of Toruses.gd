@@ -18,6 +18,9 @@ func _onready():
 	exit_limelight()
 	
 func _on_mouse_enter():
+	if !shootable:
+		return
+	
 	if hiding:
 		for torus in all_toruses:
 			torus.modulate = Color(1, 1, 1)
@@ -27,25 +30,25 @@ func _on_mouse_enter():
 	get_parent().target = self
 	
 
-func _on_mouse_exit():
+func _on_mouse_exit(toruses=all_toruses):
 	if hiding:
-		for torus in all_toruses:
+		for torus in toruses:
 			torus.modulate = Color(0, 0, 0)
 			torus.playing = false
-	for torus in all_toruses:
+	for torus in toruses:
 		torus.get_material().set_shader_param("enabled", false)
 	get_parent().target = null
 
-func enter_limelight():
+func enter_limelight(toruses=all_toruses):
 	text_box.show()
-	for torus in all_toruses:
+	for torus in toruses:
 		torus.modulate = Color(1, 1, 1)
 		torus.playing = true
 	hiding = false
 	
-func exit_limelight():
+func exit_limelight(toruses=all_toruses):
 	text_box.hide()
-	for torus in all_toruses:
+	for torus in toruses:
 		torus.modulate = Color(0, 0, 0)
 		torus.playing = false
 	hiding = true

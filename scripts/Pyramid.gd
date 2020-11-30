@@ -7,13 +7,23 @@ func _onready():
 	anim = body.get_node("anim")
 	
 	text = text_box.get_node("text")
-	body.connect("mouse_entered", self, "_on_mouse_enter")
-	body.connect("mouse_exited", self, "_on_mouse_exit")
 		
 	anim.play("Pyramid")
 	exit_limelight()
 	
+func _process(delta):
+	var center = body.rect_position + (body.rect_size / 2)
+	center.x -= 20 # fine-tuning the center, sprite isn't symmetrical
+	
+	if center.distance_to(get_global_mouse_position()) <= 100:
+		_on_mouse_enter()
+	else:
+		_on_mouse_exit()
+	
 func _on_mouse_enter():
+	if !shootable:
+		return
+	
 	if hiding:
 		sprite.modulate = Color(1, 1, 1)
 	sprite.get_material().set_shader_param("enabled", true)

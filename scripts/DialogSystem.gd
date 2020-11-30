@@ -24,16 +24,19 @@ func _input(event):
 		shoot()
 		
 func shoot():
+	var shot = target
 	shoot_sound.play()
 	
-	
 	var flash_time = 1
+	
 	white_screen.show()
+	
 	tween.interpolate_property(white_screen, "color", Color(1, 1, 1, 1), Color(1, 1, 1, 0), flash_time, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
+	yield(tween, "tween_completed")
 	
-	if target:
-		target.die()
+	if shot:
+		shot.die()
 		
 func parse_script(script):
 	var lines = script.strip_edges().split("\n")
@@ -48,6 +51,13 @@ func parse_script(script):
 	
 func end():
 	pass
+	
+func fade(fade_in):
+	var fade_time = 2
+	
+	white_screen.show()
+	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), fade_time)
+	tween.start()
 	
 func direct_scene(intro, scripts):
 	yield(play_dialogue(intro), "completed")

@@ -1,22 +1,25 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=1]
-[ext_resource path="res://scripts/Actor.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Narrator.gd" type="Script" id=2]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Narrator" type="Node2D"]
-visible = false
 script = ExtResource( 2 )
 textcolor = Color( 0.996078, 0.905882, 0.380392, 1 )
+shootable = false
 
-[node name="nonbody" type="Node2D" parent="."]
+[node name="body" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ColorRect6" type="ColorRect" parent="nonbody"]
+[node name="box" type="ColorRect" parent="body"]
 margin_left = 208.0
 margin_top = 420.0
 margin_right = 816.0
@@ -26,14 +29,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="text" type="RichTextLabel" parent="nonbody"]
+[node name="text" type="RichTextLabel" parent="body"]
 anchor_top = -0.017
 anchor_bottom = -0.017
 margin_left = 219.0
 margin_top = 425.68
 margin_right = 814.0
 margin_bottom = 562.68
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "this is a test !!"
 text = "this is a test !!"
