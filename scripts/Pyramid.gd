@@ -18,7 +18,8 @@ func _process(delta):
 	if center.distance_to(get_global_mouse_position()) <= 100:
 		_on_mouse_enter()
 	else:
-		_on_mouse_exit()
+		if (get_parent().target == self):
+			_on_mouse_exit()
 	
 func _on_mouse_enter():
 	if !shootable:

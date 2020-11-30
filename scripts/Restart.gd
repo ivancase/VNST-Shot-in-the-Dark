@@ -11,6 +11,8 @@ func _ready():
 	
 func end():
 	clock.shootable = true
+	if clock.mouse_over:
+		clock._on_mouse_enter()
 	
 func direct_scene(intro, _scripts):
 	yield(play_dialogue(intro), "completed")

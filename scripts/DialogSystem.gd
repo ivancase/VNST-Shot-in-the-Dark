@@ -27,16 +27,14 @@ func shoot():
 	var shot = target
 	shoot_sound.play()
 	
+	if shot:
+		shot.die()
+	
 	var flash_time = 1
-	
 	white_screen.show()
-	
 	tween.interpolate_property(white_screen, "color", Color(1, 1, 1, 1), Color(1, 1, 1, 0), flash_time, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 	yield(tween, "tween_completed")
-	
-	if shot:
-		shot.die()
 		
 func parse_script(script):
 	var lines = script.strip_edges().split("\n")

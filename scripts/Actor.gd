@@ -62,12 +62,12 @@ func act(line):
 
 func die():
 	exit_limelight()
+	#anim.modulate = Color(10, 10, 10)
 	hiding = false
 	
-	#var fade_time = 2
-	#tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), fade_time, Tween.TRANS_LINEAR)
-	#tween.start()
-	#yield(tween, "tween_completed")
+	tween.interpolate_property(body, "rect_position", body.rect_position, body.rect_position + Vector2(0, 600), 1, Tween.TRANS_LINEAR)
+	tween.start()
+	yield(tween, "tween_completed")
 		
 	get_tree().change_scene(next_scene)
 
