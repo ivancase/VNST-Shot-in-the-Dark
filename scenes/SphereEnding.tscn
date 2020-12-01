@@ -4,6 +4,7 @@
 [ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=2]
 [ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/SphereEnding.gd" type="Script" id=4]
+[ext_resource path="res://character_scenes/Execute Text.tscn" type="PackedScene" id=5]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://shaders/outline.tres" type="Material" id=13]
 [ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
@@ -58,11 +59,6 @@ size = 30
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 60
-outline_color = Color( 1, 0.321569, 0.466667, 1 )
-font_data = ExtResource( 8 )
-
 [node name="Scene" type="Control"]
 script = ExtResource( 4 )
 __meta__ = {
@@ -88,7 +84,7 @@ special_color = true
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 4
+frame = 6
 speed_scale = 0.1
 playing = true
 centered = false
@@ -106,6 +102,7 @@ margin_left = 339.0
 margin_top = 70.0
 margin_right = 686.0
 margin_bottom = 417.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -195,21 +192,7 @@ stream = ExtResource( 31 )
 volume_db = -15.0
 pitch_scale = 0.9
 
-[node name="Exonecute Text" type="RichTextLabel" parent="."]
-visible = false
-anchor_top = -0.017
-anchor_bottom = -0.017
-margin_left = 12.3181
-margin_top = 13.3433
-margin_right = 1031.32
-margin_bottom = 150.343
-custom_fonts/normal_font = SubResource( 5 )
-bbcode_enabled = true
-bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
-text = "EXONECUTE THE INNOCENT PARTY."
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Execute Text" parent="." instance=ExtResource( 5 )]
 
 [node name="Clock" type="TextureRect" parent="."]
 visible = false

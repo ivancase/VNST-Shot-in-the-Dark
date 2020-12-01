@@ -1,7 +1,7 @@
 extends "res://scripts/Actor.gd"
 
 export(int) var time
-var hiding
+#var hiding
 
 func _onready():
 	hiding = true

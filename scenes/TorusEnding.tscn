@@ -1,9 +1,10 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://scripts/Narrator.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TorusEnding.gd" type="Script" id=2]
 [ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://animations/torus/torus2.png" type="Texture" id=4]
+[ext_resource path="res://character_scenes/Execute Text.tscn" type="PackedScene" id=5]
 [ext_resource path="res://animations/torus/torus3.png" type="Texture" id=6]
 [ext_resource path="res://animations/torus/torus25.png" type="Texture" id=7]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
@@ -124,7 +125,7 @@ special_color = true
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 2
+frame = 6
 speed_scale = 0.1
 playing = true
 centered = false
@@ -258,6 +259,8 @@ text = "EXONECUTE THE INNOCENT PARTY."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Execute Text" parent="." instance=ExtResource( 5 )]
 
 [node name="Clock" type="TextureRect" parent="."]
 visible = false

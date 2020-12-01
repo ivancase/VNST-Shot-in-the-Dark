@@ -27,7 +27,8 @@ func _on_mouse_enter():
 	if !shootable:
 		return
 	
-	sprite.modulate = Color(1, 1, 1)
+	if hiding:
+		sprite.modulate = Color(1, 1, 1)
 	sprite.get_material().set_shader_param("enabled", true)
 	get_parent().target = self
 	
@@ -37,7 +38,8 @@ func _on_mouse_exit():
 	if !shootable:
 		return
 	
-	sprite.modulate = Color(0, 0, 0)
+	if hiding:
+		sprite.modulate = Color(0, 0, 0)
 	sprite.get_material().set_shader_param("enabled", false)
 	get_parent().target = null
 	
@@ -46,10 +48,12 @@ func die():
 	.die()
 
 func enter_limelight():
+	hiding = false
 	text_box.show()
 	sprite.modulate = Color(1, 1, 1)
 	
 func exit_limelight():
+	hiding = true
 	text_box.hide()
 	if !shootable or !mouse_over:
 		sprite.modulate = Color(0, 0, 0)

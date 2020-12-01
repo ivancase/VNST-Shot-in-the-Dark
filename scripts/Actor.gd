@@ -15,6 +15,7 @@ onready var white_screen = get_node("../White Screen")
 var anim
 var text
 var mouse_over
+var hiding
 
 func _ready():
 	_onready()
@@ -32,8 +33,9 @@ func _on_mouse_enter():
 	if !shootable:
 		return
 		
-	anim.modulate = Color(1, 1, 1)
-	anim.playing = true
+	if hiding:
+		anim.modulate = Color(1, 1, 1)
+		anim.playing = true
 	anim.get_material().set_shader_param("enabled", true)
 	get_parent().target = self
 	
@@ -42,9 +44,10 @@ func _on_mouse_exit():
 	mouse_over = false
 	if !shootable:
 		return
-	
-	anim.modulate = Color(0, 0, 0)
-	anim.playing = false
+		
+	if hiding:
+		anim.modulate = Color(0, 0, 0)
+		anim.playing = false
 	anim.get_material().set_shader_param("enabled", false)
 	get_parent().target = null
 	
@@ -89,11 +92,13 @@ func die():
 	get_tree().change_scene(next_scene)
 
 func enter_limelight():
+	hiding = false
 	text_box.show()
 	anim.modulate = Color(1, 1, 1)
 	anim.playing = true
 	
 func exit_limelight():
+	hiding = true
 	text_box.hide()
 	if !shootable or !mouse_over:
 		anim.modulate = Color(0, 0, 0)
