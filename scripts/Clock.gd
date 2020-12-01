@@ -27,6 +27,18 @@ func set_time(index):
 	body.texture = load("res://sprites/clock%s.png" % index)
 	if !hiding and time != index:
 		voice.play()
+		
+func die():
+	mouse_over = false
+	shootable = false
+	
+	voice.play()
+	
+	tween.interpolate_property(body, "rect_position", body.rect_position, body.rect_position + Vector2(0, 800), 1, Tween.TRANS_LINEAR)
+	tween.start()
+	yield(tween, "tween_completed")
+	
+	get_tree().change_scene(next_scene)
 
 func act(line):
 	print(line)

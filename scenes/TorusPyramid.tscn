@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://animations/torus/torus2.png" type="Texture" id=2]
@@ -92,14 +92,55 @@ shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="Animation" id=7]
+resource_name = "Toruses"
+length = 2.2
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.28, 0.68, 1.04, 1.44, 1.84 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 114.548, 82.1058 ), Vector2( 229.701, -17.9449 ), Vector2( 876.255, 68.8916 ), Vector2( 71.1297, 355.829 ), Vector2( 27.7115, 50.0141 ), Vector2( 463.781, 15.0907 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.02, 0.3, 0.7, 1.08, 1.46, 1.84 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 180.619, 202.922 ), Vector2( 463.781, -91.5668 ), Vector2( 828.117, 278.432 ), Vector2( 739.393, -16.0568 ), Vector2( 162.685, 191.596 ), Vector2( 10.7217, -85.9035 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.02, 0.28, 0.66, 1.08, 1.46, 1.86 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 54.1405, 202.922 ), Vector2( 22.9926, 348.279 ), Vector2( 709.189, 60.3969 ), Vector2( 7.89069, 245.396 ), Vector2( 873.423, 380.37 ), Vector2( 683.705, 199.146 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 50 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="Animation" id=8]
-resource_name = "Pyramid"
+[sub_resource type="Animation" id=9]
 length = 3.0
 loop = true
 step = 0.02
@@ -116,7 +157,7 @@ tracks/0/keys = {
 "values": [ Vector2( 779, 242 ), Vector2( 718.419, 96.7835 ), Vector2( 849.427, 415.639 ), Vector2( 727.938, 300.214 ), Vector2( 870.099, 262.109 ), Vector2( 868.946, 6.28293 ), Vector2( 700.385, 434.328 ), Vector2( 738.482, 303.548 ), Vector2( 856.416, 384.335 ), Vector2( 789.33, 162.443 ), Vector2( 779, 242 ) ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 60
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
@@ -185,6 +226,9 @@ material = SubResource( 6 )
 position = Vector2( 54.1405, 202.922 )
 frames = SubResource( 4 )
 
+[node name="anim" type="AnimationPlayer" parent="Set of Toruses/body"]
+anims/Toruses = SubResource( 7 )
+
 [node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
 stream = ExtResource( 49 )
 pitch_scale = 2.35
@@ -206,13 +250,13 @@ __meta__ = {
 }
 
 [node name="sprite" type="Sprite" parent="Pyramid/body"]
-material = SubResource( 7 )
+material = SubResource( 8 )
 position = Vector2( 72.952, 55.9935 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 54 )
 
 [node name="anim" type="AnimationPlayer" parent="Pyramid/body"]
-anims/Pyramid = SubResource( 8 )
+anims/Pyramid = SubResource( 9 )
 
 [node name="voice" type="AudioStreamPlayer" parent="Pyramid"]
 stream = ExtResource( 49 )
@@ -239,7 +283,7 @@ margin_left = 12.3181
 margin_top = 13.3433
 margin_right = 1031.32
 margin_bottom = 150.343
-custom_fonts/normal_font = SubResource( 9 )
+custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
 bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
 text = "EXONECUTE THE INNOCENT PARTY."

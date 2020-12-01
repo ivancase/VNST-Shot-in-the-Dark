@@ -2,7 +2,7 @@
 
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 60
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 1 )
@@ -16,10 +16,10 @@ margin_top = 2.0
 margin_right = 1023.0
 margin_bottom = 139.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center][shake]EXECUTE THE PERPETRATOR."
-text = "EXECUTE THE PERPETRATOR."
+bbcode_text = "[center][shake]EXECUTE THE GUILTY PARTY."
+text = "EXECUTE THE GUILTY PARTY."
 __meta__ = {
 "_edit_use_anchors_": false
 }

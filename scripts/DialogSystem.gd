@@ -66,7 +66,6 @@ func fade_in():
 func direct_scene(intro, scripts):
 	if has_interim and !Global.INTERIM_OCCURED:
 		Global.CURRENT_SCENE = filename
-		print(Global.CURRENT_SCENE)
 		Global.TRIAL_NAME = trial_name
 		Global.CLOCK_TIME = clock_time
 		get_tree().change_scene("res://scenes/Interim.tscn")

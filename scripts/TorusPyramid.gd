@@ -11,7 +11,6 @@ func _ready():
 func direct_scene(intro, _scripts):
 	if has_interim and !Global.INTERIM_OCCURED:
 		Global.CURRENT_SCENE = filename
-		print(Global.CURRENT_SCENE)
 		Global.TRIAL_NAME = trial_name
 		Global.CLOCK_TIME = clock_time
 		get_tree().change_scene("res://scenes/Interim.tscn")
@@ -19,20 +18,21 @@ func direct_scene(intro, _scripts):
 	Global.INTERIM_OCCURED = false
 	
 	yield(play_dialogue(intro), "completed")
+	torus.body.get_node("anim").play("Toruses")
 	end()
 		
 func end():
 	yield(play_dialogue(parse_script(BAD_END)), "completed")
-	.end()
+	get_tree().change_scene("res://scenes/Restart.tscn")
 	
 		
 const INTRO = """
-	t :: WAIT WHAT. I CAN DO THAT
+	t :: WAIT WHAT. CAN WE DO THAT.
 	p :: heelll l yeah my fast brother!!!!!!
-	t :: I FEEL. SO... FREE.
 	"""
 	
 const BAD_END = """
-	n :: ok. no. this is absolutely awful.
+	t :: WE FEEL. SO... FREE.
+	n :: ok. no. this is absolutely awful. we're not doing this.
 	"""
 	
