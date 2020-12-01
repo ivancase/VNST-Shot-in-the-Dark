@@ -34,6 +34,9 @@ func _on_mouse_enter():
 func _on_mouse_exit(toruses=all_toruses):
 	mouse_over = false
 	
+	if !shootable:
+		return
+	
 	for torus in toruses:
 		torus.modulate = Color(0, 0, 0)
 		torus.playing = false

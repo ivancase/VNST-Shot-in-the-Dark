@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Interim.gd" type="Script" id=1]
 [ext_resource path="res://character_scenes/Clock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Narrator.gd" type="Script" id=4]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
@@ -25,6 +25,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+trial_name = "NULL"
 
 [node name="Color Shift" type="ColorRect" parent="."]
 visible = false
@@ -54,6 +55,7 @@ __meta__ = {
 [node name="Clock" parent="." instance=ExtResource( 2 )]
 
 [node name="Narrator" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 4 )
 textcolor = Color( 0.996078, 0.905882, 0.380392, 1 )
 shootable = false
@@ -99,18 +101,17 @@ stream = ExtResource( 31 )
 volume_db = -15.0
 pitch_scale = 0.9
 
-[node name="Exonecute Text" type="RichTextLabel" parent="."]
-visible = false
+[node name="Billing" type="RichTextLabel" parent="."]
 anchor_top = -0.017
 anchor_bottom = -0.017
-margin_left = 12.3181
-margin_top = 13.3433
-margin_right = 1031.32
-margin_bottom = 150.343
+margin_left = 1.0
+margin_top = 372.2
+margin_right = 1024.0
+margin_bottom = 509.2
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
-text = "EXONECUTE THE INNOCENT PARTY."
+bbcode_text = "[center][shake]SPHERE VS. ICOSAHEDRON"
+text = "SPHERE VS. ICOSAHEDRON"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -9,6 +9,15 @@ func _ready():
 	direct_scene(parse_script(INTRO), null)
 		
 func direct_scene(intro, _scripts):
+	if has_interim and !Global.INTERIM_OCCURED:
+		Global.CURRENT_SCENE = filename
+		print(Global.CURRENT_SCENE)
+		Global.TRIAL_NAME = trial_name
+		Global.CLOCK_TIME = clock_time
+		get_tree().change_scene("res://scenes/Interim.tscn")
+	
+	Global.INTERIM_OCCURED = false
+	
 	yield(play_dialogue(intro), "completed")
 	end()
 		

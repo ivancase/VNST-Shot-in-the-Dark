@@ -14,7 +14,7 @@
 [ext_resource path="res://scripts/Actor.gd" type="Script" id=12]
 [ext_resource path="res://shaders/outline.tres" type="Material" id=13]
 [ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
-[ext_resource path="res://sprites/clock4.png" type="Texture" id=15]
+[ext_resource path="res://sprites/clock3.png" type="Texture" id=15]
 [ext_resource path="res://animations/icosahedron/icosahedron3.png" type="Texture" id=16]
 [ext_resource path="res://animations/icosahedron/icosahedron1.png" type="Texture" id=17]
 [ext_resource path="res://animations/icosahedron/icosahedron4.png" type="Texture" id=18]
@@ -79,7 +79,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Shader" id=13]
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 uniform vec4 outline_color : hint_color;
@@ -103,19 +103,19 @@ void fragment() {
 	COLOR = vec4(final_color.rgb, clamp(abs(alpha) + sprite_color.a, 0.0, 1.0));
 }"
 
-[sub_resource type="ShaderMaterial" id=14]
-shader = SubResource( 13 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 30 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 1 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ) ],
 "loop": true,
@@ -123,26 +123,12 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
-} ]
-
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 30 )
-shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
-shader_param/width = 2.0
-shader_param/enabled = false
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ ExtResource( 67 ), ExtResource( 28 ), ExtResource( 43 ), ExtResource( 61 ), ExtResource( 53 ), ExtResource( 64 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 66 ), ExtResource( 50 ), ExtResource( 63 ), ExtResource( 48 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 65 ), ExtResource( 70 ), ExtResource( 49 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 47 ), ExtResource( 59 ), ExtResource( 71 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 68 ), ExtResource( 72 ), ExtResource( 69 ) ],
-"loop": true,
-"name": "default",
-"speed": 12.0
 } ]
 
 [sub_resource type="ShaderMaterial" id=8]
@@ -151,19 +137,33 @@ shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 67 ), ExtResource( 28 ), ExtResource( 43 ), ExtResource( 61 ), ExtResource( 53 ), ExtResource( 64 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 66 ), ExtResource( 50 ), ExtResource( 63 ), ExtResource( 48 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 65 ), ExtResource( 70 ), ExtResource( 49 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 47 ), ExtResource( 59 ), ExtResource( 71 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 68 ), ExtResource( 72 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 30 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="ShaderMaterial" id=15]
+[sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 30 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 30 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
+
+[sub_resource type="Animation" id=13]
 resource_name = "Pyramid"
 length = 2.33333
 loop = true
@@ -181,12 +181,12 @@ tracks/0/keys = {
 "values": [ Vector2( 779, 242 ), Vector2( 779, 224.041 ) ]
 }
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=14]
 size = 30
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=15]
 size = 60
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
@@ -225,7 +225,7 @@ visible = false
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 8
+frame = 9
 speed_scale = 0.1
 playing = true
 centered = false
@@ -240,7 +240,7 @@ shootable = false
 stream = ExtResource( 2 )
 
 [node name="body" type="TextureRect" parent="Clock"]
-material = SubResource( 14 )
+material = SubResource( 4 )
 anchor_left = 0.5
 anchor_top = 0.4
 anchor_right = 0.5
@@ -277,9 +277,9 @@ __meta__ = {
 }
 
 [node name="anim" type="AnimatedSprite" parent="Icosahedron/body"]
-material = SubResource( 3 )
+material = SubResource( 5 )
 position = Vector2( 171.059, 255.072 )
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 
 [node name="voice" type="AudioStreamPlayer" parent="Icosahedron"]
 stream = ExtResource( 32 )
@@ -304,7 +304,7 @@ __meta__ = {
 light_mask = -2147483647
 material = ExtResource( 13 )
 position = Vector2( 173.96, 164.687 )
-frames = SubResource( 5 )
+frames = SubResource( 7 )
 
 [node name="voice" type="AudioStreamPlayer" parent="Sphere"]
 stream = ExtResource( 32 )
@@ -325,19 +325,19 @@ __meta__ = {
 }
 
 [node name="top" type="AnimatedSprite" parent="Set of Toruses/body"]
-material = SubResource( 6 )
+material = SubResource( 8 )
 position = Vector2( 114.548, 82.1058 )
-frames = SubResource( 7 )
+frames = SubResource( 9 )
 
 [node name="right" type="AnimatedSprite" parent="Set of Toruses/body"]
-material = SubResource( 8 )
+material = SubResource( 10 )
 position = Vector2( 180.619, 202.922 )
-frames = SubResource( 7 )
+frames = SubResource( 9 )
 
 [node name="left" type="AnimatedSprite" parent="Set of Toruses/body"]
-material = SubResource( 9 )
+material = SubResource( 11 )
 position = Vector2( 54.1405, 202.922 )
-frames = SubResource( 7 )
+frames = SubResource( 9 )
 
 [node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
 stream = ExtResource( 32 )
@@ -359,13 +359,13 @@ __meta__ = {
 }
 
 [node name="sprite" type="Sprite" parent="Pyramid/body"]
-material = SubResource( 15 )
+material = SubResource( 12 )
 position = Vector2( 72.952, 55.9935 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 73 )
 
 [node name="anim" type="AnimationPlayer" parent="Pyramid/body"]
-anims/Pyramid = SubResource( 16 )
+anims/Pyramid = SubResource( 13 )
 
 [node name="voice" type="AudioStreamPlayer" parent="Pyramid"]
 stream = ExtResource( 32 )
@@ -399,7 +399,7 @@ margin_top = 425.68
 margin_right = 814.0
 margin_bottom = 562.68
 mouse_filter = 1
-custom_fonts/normal_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "this is a test !!"
 text = "this is a test !!"
@@ -429,7 +429,7 @@ margin_left = 12.3181
 margin_top = 13.3433
 margin_right = 1031.32
 margin_bottom = 150.343
-custom_fonts/normal_font = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 15 )
 bbcode_enabled = true
 bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
 text = "EXONECUTE THE INNOCENT PARTY."

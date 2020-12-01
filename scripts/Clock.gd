@@ -1,9 +1,14 @@
 extends "res://scripts/Actor.gd"
 
+export(int) var time
+var hiding
+
 func _onready():
+	hiding = true
 	hide()
 	body.connect("mouse_entered", self, "_on_mouse_enter")
 	body.connect("mouse_exited", self, "_on_mouse_exit")
+	set_time(time)
 	
 func _on_mouse_enter():
 	mouse_over = true
@@ -18,6 +23,11 @@ func _on_mouse_exit():
 		body.get_material().set_shader_param("enabled", false)
 		get_parent().target = null
 		
+func set_time(index):
+	body.texture = load("res://sprites/clock%s.png" % index)
+	if !hiding and time != index:
+		voice.play()
+
 func act(line):
 	print(line)
 	voice.play()
@@ -25,6 +35,7 @@ func act(line):
 	yield(timer, "timeout")
 	
 func enter_limelight():
+	hiding = false
 	show()
 
 func exit_limelight():

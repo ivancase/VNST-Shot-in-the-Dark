@@ -28,7 +28,7 @@
 [ext_resource path="res://animations/background/anim_background5.png" type="Texture" id=39]
 [ext_resource path="res://animations/background/anim_background7.png" type="Texture" id=40]
 [ext_resource path="res://animations/background/anim_background9.png" type="Texture" id=41]
-[ext_resource path="res://sprites/clock1.png" type="Texture" id=42]
+[ext_resource path="res://sprites/clock0.png" type="Texture" id=42]
 [ext_resource path="res://animations/sphere/sphere8.png" type="Texture" id=63]
 [ext_resource path="res://animations/sphere/sphere1.png" type="Texture" id=64]
 [ext_resource path="res://animations/sphere/sphere4.png" type="Texture" id=65]
@@ -80,6 +80,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 duration = 5.0
+special_color = true
 
 [node name="Tween" type="Tween" parent="Color Shift"]
 
@@ -87,7 +88,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 2
+frame = 4
 speed_scale = 0.1
 playing = true
 centered = false

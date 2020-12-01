@@ -4,21 +4,25 @@ onready var clock = get_node("Clock")
 onready var narrator = get_node("Narrator")
 
 func _ready():
+	_on_ready()
+
+func _on_ready():
 	key = {"n" : narrator, "c" : clock}
 	
 	direct_scene(parse_script(INTRO), null)
-		
 	
 func end():
-	clock.shootable = true
-	if clock.mouse_over:
-		clock._on_mouse_enter()
+	get_tree().change_scene("res://scenes/SphereIcosa.tscn")
 	
 func direct_scene(intro, _scripts):
 	yield(play_dialogue(intro), "completed")
 	end()
-		
+	
 const INTRO = """
+	n :: intro.
+	"""
+		
+const INTRO_real = """
  	n :: so, you're dead.
 	n :: welcome to the Dark.
 	n :: ...
@@ -39,5 +43,5 @@ const INTRO = """
 	n :: it is your job to interrogate them two at a time and exonecute who you think is innocent. when one remains, we've found our perpetrator.
 	n :: then we shoot them.
 	n :: well, you will shoot them. i'm just here to help.
-	n :: whenever you're ready, shoot the clock and we'll begin our first trial.
+	n :: let's begin our first trial.
 	"""

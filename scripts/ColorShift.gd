@@ -3,13 +3,17 @@ extends ColorRect
 onready var tween = get_node("Tween")
 
 export (float) var duration = 1.0
+export (bool) var special_color
 
 var enabled = true
 var prev_color
 var next_color
 
 func _ready():
-	prev_color = color
+	if special_color:
+		prev_color = color
+	else:
+		prev_color = Color(_clrf(), _clrf(), _clrf(), 1)
 	next_color = Color(_clrf(), _clrf(), _clrf(), 1)
 	while enabled:
 		tween.interpolate_property(self, "color", prev_color, next_color, duration)

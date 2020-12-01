@@ -40,7 +40,7 @@
 [ext_resource path="res://animations/background/anim_background5.png" type="Texture" id=39]
 [ext_resource path="res://animations/background/anim_background7.png" type="Texture" id=40]
 [ext_resource path="res://animations/background/anim_background9.png" type="Texture" id=41]
-[ext_resource path="res://sprites/clock1.png" type="Texture" id=42]
+[ext_resource path="res://sprites/clock0.png" type="Texture" id=42]
 [ext_resource path="res://character_scenes/Text Box.tscn" type="PackedScene" id=44]
 [ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=45]
 
@@ -87,6 +87,8 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_interim = true
+trial_name = "SPHERE VS. ICOSAHEDRON"
 
 [node name="Color Shift" type="ColorRect" parent="."]
 margin_left = -56.31
@@ -105,6 +107,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
+frame = 4
 speed_scale = 0.1
 playing = true
 centered = false

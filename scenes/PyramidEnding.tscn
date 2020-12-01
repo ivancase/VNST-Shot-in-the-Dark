@@ -21,7 +21,7 @@
 [ext_resource path="res://animations/background/anim_background5.png" type="Texture" id=39]
 [ext_resource path="res://animations/background/anim_background7.png" type="Texture" id=40]
 [ext_resource path="res://animations/background/anim_background9.png" type="Texture" id=41]
-[ext_resource path="res://sprites/clock1.png" type="Texture" id=42]
+[ext_resource path="res://sprites/clock0.png" type="Texture" id=42]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -85,6 +85,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 duration = 5.0
+special_color = true
 
 [node name="Tween" type="Tween" parent="Color Shift"]
 
@@ -92,7 +93,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 3
+frame = 8
 speed_scale = 0.1
 playing = true
 centered = false

@@ -19,10 +19,9 @@ func _ready():
 		
 	
 func end():
-	yield(play_dialogue(parse_script(TIMES_UP)), "completed")
-	
 	exonecute_text.show()
 	color_shift.duration /= 2
+	yield(play_dialogue(parse_script(TIMES_UP)), "completed")
 		
 const INTRO = """
  	n :: short intro test.

@@ -10,7 +10,7 @@ onready var text_box = get_node("../Text Box")
 onready var voice = get_node("voice")
 onready var timer = get_node("../Timer")
 onready var tween = get_node("../Tween")
-#onready var white_screen = get_node("../White Screen")
+onready var white_screen = get_node("../White Screen")
 
 var anim
 var text
@@ -40,6 +40,9 @@ func _on_mouse_enter():
 
 func _on_mouse_exit():
 	mouse_over = false
+	if !shootable:
+		return
+	
 	anim.modulate = Color(0, 0, 0)
 	anim.playing = false
 	anim.get_material().set_shader_param("enabled", false)
@@ -67,10 +70,22 @@ func die():
 	exit_limelight()
 	#anim.modulate = Color(10, 10, 10)
 	
-	tween.interpolate_property(body, "rect_position", body.rect_position, body.rect_position + Vector2(0, 800), 1.5, Tween.TRANS_LINEAR)
+	voice.stream = load("res://sounds/death.wav")
+	voice.volume_db -= 10
+	voice.play()
+	
+	tween = Tween.new()
+	add_child(tween)
+	
+	tween.interpolate_property(body, "rect_position", body.rect_position, body.rect_position + Vector2(0, 800), 1, Tween.TRANS_LINEAR)
 	tween.start()
 	yield(tween, "tween_completed")
-		
+	
+	white_screen.show()
+	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), 1)
+	tween.start()
+	yield(tween, "tween_completed")
+	
 	get_tree().change_scene(next_scene)
 
 func enter_limelight():
@@ -80,6 +95,6 @@ func enter_limelight():
 	
 func exit_limelight():
 	text_box.hide()
-	if !mouse_over:
+	if !shootable or !mouse_over:
 		anim.modulate = Color(0, 0, 0)
 		anim.playing = false

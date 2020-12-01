@@ -2,6 +2,10 @@ extends Control
 
 signal next
 
+export(bool) var has_interim
+export(String) var trial_name
+export(int) var clock_time
+
 onready var choicebox = get_node("Choice Box")
 onready var shoot_sound = get_node("Shoot")
 onready var timer = get_node("Timer")
@@ -11,8 +15,11 @@ onready var white_screen = get_node("White Screen")
 var key
 var target
 var pressed
+var inputs_disabled
 	
 func _input(event):
+	if inputs_disabled:
+		return
 	var boost_amt = 4
 	if event.is_action_pressed("ui_accept"):
 		emit_signal("next")
@@ -28,6 +35,7 @@ func shoot():
 	shoot_sound.play()
 	
 	if shot:
+		inputs_disabled = true
 		shot.die()
 	
 	var flash_time = 1
@@ -54,13 +62,17 @@ func fade_in():
 	white_screen.show()
 	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 1), Color(0, 0, 0, 0), 2)
 	tween.start()
-
-func fade_out():
-	white_screen.show()
-	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), 2)
-	tween.start()
 	
 func direct_scene(intro, scripts):
+	if has_interim and !Global.INTERIM_OCCURED:
+		Global.CURRENT_SCENE = filename
+		print(Global.CURRENT_SCENE)
+		Global.TRIAL_NAME = trial_name
+		Global.CLOCK_TIME = clock_time
+		get_tree().change_scene("res://scenes/Interim.tscn")
+	
+	Global.INTERIM_OCCURED = false
+	
 	fade_in()
 	yield(play_dialogue(intro), "completed")
 	while choicebox.any_enabled():

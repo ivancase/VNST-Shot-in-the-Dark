@@ -3,6 +3,7 @@ extends "res://scripts/Actor.gd"
 var sprite
 
 func _onready():
+	voice.pitch_scale = 2
 	sprite = body.get_node("sprite")
 	anim = body.get_node("anim")
 	
@@ -33,9 +34,16 @@ func _on_mouse_enter():
 
 func _on_mouse_exit():
 	mouse_over = false
+	if !shootable:
+		return
+	
 	sprite.modulate = Color(0, 0, 0)
 	sprite.get_material().set_shader_param("enabled", false)
 	get_parent().target = null
+	
+func die():
+	anim.stop()
+	.die()
 
 func enter_limelight():
 	text_box.show()
@@ -43,5 +51,5 @@ func enter_limelight():
 	
 func exit_limelight():
 	text_box.hide()
-	if !mouse_over:
+	if !shootable or !mouse_over:
 		sprite.modulate = Color(0, 0, 0)

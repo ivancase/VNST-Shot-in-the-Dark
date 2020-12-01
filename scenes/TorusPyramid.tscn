@@ -41,7 +41,7 @@
 [ext_resource path="res://animations/background/anim_background5.png" type="Texture" id=39]
 [ext_resource path="res://animations/background/anim_background7.png" type="Texture" id=40]
 [ext_resource path="res://animations/background/anim_background9.png" type="Texture" id=41]
-[ext_resource path="res://sprites/clock1.png" type="Texture" id=42]
+[ext_resource path="res://sprites/clock0.png" type="Texture" id=42]
 [ext_resource path="res://animations/torus/torus1.png" type="Texture" id=43]
 [ext_resource path="res://animations/torus/torus27.png" type="Texture" id=44]
 [ext_resource path="res://animations/torus/torus29.png" type="Texture" id=45]
@@ -66,19 +66,25 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 50 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 43 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 28 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 32 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 30 ), ExtResource( 46 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 9 ), ExtResource( 22 ), ExtResource( 47 ), ExtResource( 7 ), ExtResource( 25 ), ExtResource( 44 ), ExtResource( 48 ), ExtResource( 45 ) ],
 "loop": true,
 "name": "default",
 "speed": 12.0
 } ]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 50 )
+shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
+shader_param/width = 2.0
+shader_param/enabled = false
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 50 )
@@ -92,13 +98,7 @@ shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = ExtResource( 50 )
-shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
-shader_param/width = 2.0
-shader_param/enabled = false
-
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "Pyramid"
 length = 3.0
 loop = true
@@ -116,7 +116,7 @@ tracks/0/keys = {
 "values": [ Vector2( 779, 242 ), Vector2( 718.419, 96.7835 ), Vector2( 849.427, 415.639 ), Vector2( 727.938, 300.214 ), Vector2( 870.099, 262.109 ), Vector2( 868.946, 6.28293 ), Vector2( 700.385, 434.328 ), Vector2( 738.482, 303.548 ), Vector2( 856.416, 384.335 ), Vector2( 789.33, 162.443 ), Vector2( 779, 242 ) ]
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=9]
 size = 60
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 8 )
@@ -126,6 +126,9 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+has_interim = true
+trial_name = "SET OF TORUSES VS. PYRAMID"
+clock_time = 2
 
 [node name="Color Shift" type="ColorRect" parent="."]
 margin_left = -56.31
@@ -144,7 +147,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 2
+frame = 10
 speed_scale = 0.1
 playing = true
 centered = false
@@ -168,19 +171,19 @@ __meta__ = {
 }
 
 [node name="top" type="AnimatedSprite" parent="Set of Toruses/body"]
-material = SubResource( 4 )
+material = SubResource( 3 )
 position = Vector2( 114.548, 82.1058 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 
 [node name="right" type="AnimatedSprite" parent="Set of Toruses/body"]
-material = SubResource( 6 )
+material = SubResource( 5 )
 position = Vector2( 180.619, 202.922 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 
 [node name="left" type="AnimatedSprite" parent="Set of Toruses/body"]
-material = SubResource( 7 )
+material = SubResource( 6 )
 position = Vector2( 54.1405, 202.922 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 
 [node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
 stream = ExtResource( 49 )
@@ -203,13 +206,13 @@ __meta__ = {
 }
 
 [node name="sprite" type="Sprite" parent="Pyramid/body"]
-material = SubResource( 8 )
+material = SubResource( 7 )
 position = Vector2( 72.952, 55.9935 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 54 )
 
 [node name="anim" type="AnimationPlayer" parent="Pyramid/body"]
-anims/Pyramid = SubResource( 9 )
+anims/Pyramid = SubResource( 8 )
 
 [node name="voice" type="AudioStreamPlayer" parent="Pyramid"]
 stream = ExtResource( 49 )
@@ -236,7 +239,7 @@ margin_left = 12.3181
 margin_top = 13.3433
 margin_right = 1031.32
 margin_bottom = 150.343
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 9 )
 bbcode_enabled = true
 bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
 text = "EXONECUTE THE INNOCENT PARTY."
