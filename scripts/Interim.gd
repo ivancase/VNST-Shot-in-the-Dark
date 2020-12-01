@@ -14,11 +14,11 @@ func _on_ready():
 func end():
 	clock.enter_limelight()
 	
-	timer.wait_time = 1
-	timer.start()
-	yield(timer, "timeout")
-	
-	clock.set_time(Global.CLOCK_TIME)
+	if clock.time != Global.CLOCK_TIME:
+		timer.wait_time = 1
+		timer.start()
+		yield(timer, "timeout")
+		clock.set_time(Global.CLOCK_TIME)
 	
 	clock.shootable = true
 	if clock.mouse_over:

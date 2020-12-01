@@ -25,6 +25,8 @@ func _onready():
 	anim = body.get_node("anim")
 	body.connect("mouse_entered", self, "_on_mouse_enter")
 	body.connect("mouse_exited", self, "_on_mouse_exit")
+	
+	anim.playing = true
 		
 	exit_limelight()
 	
@@ -35,7 +37,7 @@ func _on_mouse_enter():
 		
 	if hiding:
 		anim.modulate = Color(1, 1, 1)
-		anim.playing = true
+		#anim.playing = true
 	anim.get_material().set_shader_param("enabled", true)
 	get_parent().target = self
 	
@@ -47,7 +49,7 @@ func _on_mouse_exit():
 		
 	if hiding:
 		anim.modulate = Color(0, 0, 0)
-		anim.playing = false
+		#anim.playing = false
 	anim.get_material().set_shader_param("enabled", false)
 	get_parent().target = null
 	
@@ -95,11 +97,11 @@ func enter_limelight():
 	hiding = false
 	text_box.show()
 	anim.modulate = Color(1, 1, 1)
-	anim.playing = true
+	#anim.playing = true
 	
 func exit_limelight():
 	hiding = true
 	text_box.hide()
 	if !shootable or !mouse_over:
 		anim.modulate = Color(0, 0, 0)
-		anim.playing = false
+		#anim.playing = false
