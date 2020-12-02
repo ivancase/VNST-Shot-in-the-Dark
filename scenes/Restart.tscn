@@ -52,7 +52,7 @@ __meta__ = {
 }
 
 [node name="Clock" parent="." instance=ExtResource( 2 )]
-time = 4
+time = 3
 
 [node name="Narrator" type="Node2D" parent="."]
 script = ExtResource( 4 )
