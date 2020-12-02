@@ -38,8 +38,8 @@ const INTRO = """
 	n :: whoever you proclaim guilty and summarily execute, will reap, as they say, \"hella clout\" for flouting the law.
 	n :: no doubt, even the innocent demons will try to convince you of their guilt for a taste of that fame. they're dying anyways.
 	n :: it is your job to interrogate them two at a time and exonecute who you think is innocent between them. then, you shoot them.
-	n :: we'll cycle until one remains. then, we have our guilty party.
-	n :: then you'll shoot them, too.
+	n :: we'll cycle until one remains. then, we've found our guilty party.
+	n :: you'll shoot them, too.
 	n :: it's my job to help you with this as best i can. if we - well, *you* - screw up, i'll be shot too.
 	n :: but that's neither here nor there. the clock is ticking. let's start our first trial.
 	"""

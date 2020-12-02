@@ -27,12 +27,21 @@ func end():
 	
 		
 const INTRO = """
-	t :: WAIT WHAT. CAN WE DO THAT.
+	t :: CEASE WHAT YOU ARE DOING, MORTAL.
+	t :: YOU HAVE A LEGAL OBLIGATION TO --
+	t :: WAIT WHAT. YOU ARE SO FAST, PYRAMID.
+	t :: CAN WE DO THAT.
 	p :: heelll l yeah my fast brother!!!!!!
+	p :: you just (fastfast) gotta beleive :)
+	n :: what is happpening
+	t :: OK. WE ARE GOING TO TRY.
+	t :: JUST GOTTA
 	"""
 	
 const BAD_END = """
-	t :: WE FEEL. SO... FREE.
-	n :: ok. no. this is absolutely awful. we're not doing this.
+	t :: OH MY GOD.
+	t :: OUR DARK TETHER IS SEVERED.
+	t :: WE FEEL SO... FREE.
+	n :: ok. no. this is absolutely awful. nope. we're not doing this.
 	"""
 	

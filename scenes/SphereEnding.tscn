@@ -1,10 +1,11 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scripts/Narrator.gd" type="Script" id=1]
 [ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=2]
 [ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/SphereEnding.gd" type="Script" id=4]
 [ext_resource path="res://character_scenes/Execute Text.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/circle.png" type="Texture" id=6]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://shaders/outline.tres" type="Material" id=13]
 [ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
@@ -50,7 +51,12 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 64 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 65 ), ExtResource( 2 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 63 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ) ],
 "loop": true,
-"name": "default",
+"name": "!sphere",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "circle",
 "speed": 5.0
 } ]
 
@@ -112,6 +118,7 @@ light_mask = -2147483647
 material = ExtResource( 13 )
 position = Vector2( 173.96, 164.687 )
 frames = SubResource( 3 )
+animation = "!sphere"
 flip_h = true
 
 [node name="voice" type="AudioStreamPlayer" parent="Sphere"]

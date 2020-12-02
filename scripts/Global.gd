@@ -2,14 +2,14 @@ extends Node
 
 onready var INTERIM_OCCURED = false
 
-var ICOSAHEDRON_CONVICTED
-var SPHERE_CONVICTED
-var TORUS_CONVICTED
-var PYRAMID_CONVICTED
+onready var ICOSAHEDRON_CONVICTED = false
+onready var SPHERE_CONVICTED = false
+onready var TORUS_CONVICTED = false
+onready var PYRAMID_CONVICTED = false
 
 var CURRENT_SCENE
 var TRIAL_NAME
 var CLOCK_TIME
 
-func all_convicted():
-	return ICOSAHEDRON_CONVICTED and SPHERE_CONVICTED and TORUS_CONVICTED and PYRAMID_CONVICTED
+func amt_convicted():
+	return int(ICOSAHEDRON_CONVICTED) + int(SPHERE_CONVICTED) + int(TORUS_CONVICTED) + int(PYRAMID_CONVICTED)

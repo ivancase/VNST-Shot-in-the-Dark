@@ -104,10 +104,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.28, 0.68, 1.04, 1.44, 1.84 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( -0.02, 0.14, 0.28, 0.68, 1.04, 1.44, 1.84 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 114.548, 82.1058 ), Vector2( 229.701, -17.9449 ), Vector2( 876.255, 68.8916 ), Vector2( 71.1297, 355.829 ), Vector2( 27.7115, 50.0141 ), Vector2( 463.781, 15.0907 ) ]
+"values": [ Vector2( 114.548, 82.1058 ), Vector2( 114.548, 82.1058 ), Vector2( 229.701, -17.9449 ), Vector2( 876.255, 68.8916 ), Vector2( 71.1297, 355.829 ), Vector2( 27.7115, 50.0141 ), Vector2( 463.781, 15.0907 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("right:position")
@@ -116,10 +116,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.02, 0.3, 0.7, 1.08, 1.46, 1.84 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( -0.04, 0.18, 0.3, 0.7, 1.08, 1.46, 1.84 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 180.619, 202.922 ), Vector2( 463.781, -91.5668 ), Vector2( 828.117, 278.432 ), Vector2( 739.393, -16.0568 ), Vector2( 162.685, 191.596 ), Vector2( 10.7217, -85.9035 ) ]
+"values": [ Vector2( 180.619, 202.922 ), Vector2( 180.619, 202.922 ), Vector2( 463.781, -91.5668 ), Vector2( 828.117, 278.432 ), Vector2( 739.393, -16.0568 ), Vector2( 162.685, 191.596 ), Vector2( 10.7217, -85.9035 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("left:position")
@@ -128,10 +128,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.02, 0.28, 0.66, 1.08, 1.46, 1.86 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( -0.04, 0.22, 0.3, 0.66, 1.08, 1.46, 1.86 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 54.1405, 202.922 ), Vector2( 22.9926, 348.279 ), Vector2( 709.189, 60.3969 ), Vector2( 7.89069, 245.396 ), Vector2( 873.423, 380.37 ), Vector2( 683.705, 199.146 ) ]
+"values": [ Vector2( 54.1405, 202.922 ), Vector2( 54.1405, 202.922 ), Vector2( 22.9926, 348.279 ), Vector2( 709.189, 60.3969 ), Vector2( 7.89069, 245.396 ), Vector2( 873.423, 380.37 ), Vector2( 683.705, 199.146 ) ]
 }
 
 [sub_resource type="ShaderMaterial" id=8]
@@ -188,7 +188,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 10
+frame = 1
 speed_scale = 0.1
 playing = true
 centered = false
