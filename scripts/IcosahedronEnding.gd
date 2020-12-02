@@ -44,6 +44,9 @@ const SPEECH = """
 	i :: but those things aren't antithetical to being ruthless and gruesome
 	i :: in fact ,,,
 	i :: they can complement a demon's odiousness quite nicely !!!!
+	n :: ... did you kill them, though?
+	i :: oh, no :P
+	n :: ...
 	"""
 	
 const LEGACY = """
