@@ -4,8 +4,8 @@ extends "res://scripts/Intro.gd"
 func _on_ready():
 	key = {"n" : narrator, "c" : clock}
 	
-	var scripts = [FIRST, SECOND, THIRD]
-	var index = Global.amt_convicted() - 1
+	var scripts = [ZERO, FIRST, SECOND, THIRD]
+	var index = Global.amt_convicted()
 	
 	direct_scene(parse_script(scripts[index]), null)
 
@@ -14,6 +14,17 @@ func end():
 	if clock.mouse_over:
 		clock._on_mouse_enter()
 	yield(play_dialogue(parse_script(OVER)), "completed")
+	
+const ZERO = """
+	n :: i'm sorry but that was the worst thing i've ever witnesed.
+	n :: i could not deal with them right now.
+	n :: so
+	n :: i'm *really* not allowed to do this.
+	c :: clock appear
+	n :: but i'm going to set the clock back.
+	n :: we can try this again.
+	n :: maybe make sure those two don't end up against each other.
+"""
 
 const FIRST = """
 	c :: clock appear
