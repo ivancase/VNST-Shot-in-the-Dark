@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=2]
@@ -66,6 +66,7 @@
 [ext_resource path="res://animations/sphere/sphere1.png" type="Texture" id=64]
 [ext_resource path="res://animations/sphere/sphere4.png" type="Texture" id=65]
 [ext_resource path="res://scripts/Actor.gd" type="Script" id=66]
+[ext_resource path="res://character_scenes/Music.tscn" type="PackedScene" id=67]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -143,7 +144,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 10
+frame = 1
 speed_scale = 0.1
 playing = true
 centered = false
@@ -271,3 +272,5 @@ mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" parent="." instance=ExtResource( 67 )]

@@ -19,7 +19,7 @@ const ZERO = """
 	n :: i'm sorry but that was the worst thing i've ever witnesed.
 	n :: i could not deal with them right now.
 	n :: so
-	n :: i'm *really* not allowed to do this.
+	n :: i shouldn't be doing this.
 	c :: clock appear
 	n :: but i'm going to set the clock back.
 	n :: we can try this again.

@@ -11,6 +11,7 @@ onready var shoot_sound = get_node("Shoot")
 onready var timer = get_node("Timer")
 onready var tween = get_node("Tween")
 onready var white_screen = get_node("White Screen")
+onready var music = get_node("Music")
 
 var key
 var target
@@ -69,8 +70,12 @@ func direct_scene(intro, scripts):
 		Global.TRIAL_NAME = trial_name
 		Global.CLOCK_TIME = clock_time
 		get_tree().change_scene("res://scenes/Interim.tscn")
+		return
 	
 	Global.INTERIM_OCCURED = false
+	
+	music.pitch_scale -= 0.1 * clock_time
+	music.play()
 	
 	fade_in()
 	yield(play_dialogue(intro), "completed")

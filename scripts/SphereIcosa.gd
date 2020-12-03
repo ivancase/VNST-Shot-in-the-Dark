@@ -43,7 +43,7 @@ const KILLED_BEFORE = """
 	i :: i know you're new here but i kill *all the time* !!!!!!!
 	i :: usually other demons though ...
 	i :: see these other shapes under my head piece? they're corpses X_X
-	s :: That's grotesque and improper. Get yourself some proper adornments.
+	s :: That's grotesque. Get yourself some proper adornments.
 	s :: No, I must admit I don't typically murder. I'm much too busy.
 	s :: But I've recently been trying to get into the business of it, as it's quite lucrative.
 	s :: It's a pity that the hit was mis-timed. A bad investment.
@@ -53,7 +53,7 @@ const KILLED_BEFORE = """
 const HOW = """
 	n :: i'm sorry that you can't remember, it's a legal thing.
 	n :: intimate knowledge of your death could cloud your judgment of the trial.
-	n :: demons don't do any *physical* killing to mortals, so the memory shouldn't matter all that much.
+	n :: demons don't do any *physical* killing of mortals, so the memory shouldn't matter all that much.
 	n :: they're *supposed* to file paperwork to have deaths moved around and circumstances set up before hand.
 	n :: obviously that didn't happen. looking at you two.
 	i :: sorry !!

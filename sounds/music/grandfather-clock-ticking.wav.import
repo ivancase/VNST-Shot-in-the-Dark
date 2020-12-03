@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grandfather-clock-ticking.wav-63c8cc2b4b63cf363349f4e3d7b9d76b.sample"
+
+[deps]
+
+source_file="res://sounds/music/grandfather-clock-ticking.wav"
+dest_files=[ "res://.import/grandfather-clock-ticking.wav-63c8cc2b4b63cf363349f4e3d7b9d76b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

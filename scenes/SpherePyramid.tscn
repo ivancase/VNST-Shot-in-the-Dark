@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/outline.tres" type="Material" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://animations/sphere/sphere6.png" type="Texture" id=22]
 [ext_resource path="res://scripts/Pyramid.gd" type="Script" id=23]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=24]
+[ext_resource path="res://character_scenes/Music.tscn" type="PackedScene" id=25]
 [ext_resource path="res://animations/background/anim_background2.png" type="Texture" id=26]
 [ext_resource path="res://animations/background/anim_background1.png" type="Texture" id=29]
 [ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=31]
@@ -112,7 +113,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 4
+frame = 8
 speed_scale = 0.1
 playing = true
 centered = false
@@ -230,3 +231,5 @@ mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" parent="." instance=ExtResource( 25 )]
