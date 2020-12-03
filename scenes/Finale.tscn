@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://animations/icosahedron/icosahedron2.png" type="Texture" id=1]
 [ext_resource path="res://sounds/ticksound.wav" type="AudioStream" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://animations/icosahedron/icosahedron1.png" type="Texture" id=17]
 [ext_resource path="res://animations/icosahedron/icosahedron4.png" type="Texture" id=18]
 [ext_resource path="res://character_scenes/Execute Text.tscn" type="PackedScene" id=19]
+[ext_resource path="res://sounds/music/673829_-FATA.wav" type="AudioStream" id=20]
 [ext_resource path="res://animations/background/anim_background2.png" type="Texture" id=26]
 [ext_resource path="res://animations/torus/torus2.png" type="Texture" id=28]
 [ext_resource path="res://animations/background/anim_background1.png" type="Texture" id=29]
@@ -66,7 +67,6 @@
 [ext_resource path="res://animations/torus/torus28.png" type="Texture" id=72]
 [ext_resource path="res://sprites/pyramid.png" type="Texture" id=73]
 [ext_resource path="res://scripts/Pyramid.gd" type="Script" id=74]
-[ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=75]
 [ext_resource path="res://scripts/Set of Toruses.gd" type="Script" id=76]
 
 [sub_resource type="CanvasItemMaterial" id=1]
@@ -158,6 +158,18 @@ shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
+[sub_resource type="GDScript" id=16]
+script/source = "extends AudioStreamPlayer
+
+
+func play(from_position = 0.0):
+	for _i in range(3):
+		var original_pitch = pitch_scale
+		pitch_scale *= randf() 
+		.play(from_position)
+		pitch_scale = original_pitch
+"
+
 [sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 30 )
 shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
@@ -226,7 +238,7 @@ visible = false
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 speed_scale = 0.1
 playing = true
 centered = false
@@ -344,7 +356,7 @@ frames = SubResource( 9 )
 [node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
 stream = ExtResource( 32 )
 pitch_scale = 2.35
-script = ExtResource( 75 )
+script = SubResource( 16 )
 
 [node name="Pyramid" type="Node2D" parent="."]
 script = ExtResource( 74 )
@@ -451,3 +463,8 @@ mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -10.0
+pitch_scale = 0.6

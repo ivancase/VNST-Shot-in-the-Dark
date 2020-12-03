@@ -7,6 +7,7 @@ func _on_ready():
 	var scripts = [ZERO, FIRST, SECOND, THIRD]
 	var index = Global.amt_convicted()
 	
+	music.play()
 	direct_scene(parse_script(scripts[index]), null)
 
 func end():

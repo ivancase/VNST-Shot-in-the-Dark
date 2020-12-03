@@ -14,8 +14,11 @@ func direct_scene(intro, _scripts):
 		Global.TRIAL_NAME = trial_name
 		Global.CLOCK_TIME = clock_time
 		get_tree().change_scene("res://scenes/Interim.tscn")
+		return
 	
 	Global.INTERIM_OCCURED = false
+	
+	music.play()
 	
 	yield(play_dialogue(intro), "completed")
 	torus.body.get_node("anim").play("Toruses")

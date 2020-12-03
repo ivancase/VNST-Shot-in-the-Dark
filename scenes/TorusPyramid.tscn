@@ -54,7 +54,7 @@
 [ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=52]
 [ext_resource path="res://scripts/Pyramid.gd" type="Script" id=53]
 [ext_resource path="res://sprites/pyramid.png" type="Texture" id=54]
-[ext_resource path="res://character_scenes/Music.tscn" type="PackedScene" id=55]
+[ext_resource path="res://sounds/music/360861_ct701_ne___mix___Part_12.wav" type="AudioStream" id=55]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 3
@@ -189,7 +189,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 3
+frame = 9
 speed_scale = 0.1
 playing = true
 centered = false
@@ -320,4 +320,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Music" parent="." instance=ExtResource( 55 )]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 55 )
+volume_db = -10.0

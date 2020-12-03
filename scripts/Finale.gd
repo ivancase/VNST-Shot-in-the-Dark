@@ -11,6 +11,7 @@ onready var execute_text = get_node("Execute Text")
 func _ready():
 	key = {"n" : narrator, "c" : clock, "i" : icosa, "s" : sphere, "t" : torus, "p" : pyramid}
 	
+	music.play()
 	direct_scene(parse_script(INTRO), null)
 	
 func end():

@@ -11,6 +11,7 @@ func make_shootable():
 
 func direct_scene(intro, _scripts):
 	fade_in()
+	music.play()
 	yield(play_dialogue(intro), "completed")
 	make_shootable()
 	execute_text.show()

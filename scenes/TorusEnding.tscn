@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://scripts/Narrator.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TorusEnding.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://animations/torus/torus3.png" type="Texture" id=6]
 [ext_resource path="res://animations/torus/torus25.png" type="Texture" id=7]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://sounds/music/673830_motion-loop.wav" type="AudioStream" id=9]
 [ext_resource path="res://animations/torus/torus22.png" type="Texture" id=10]
 [ext_resource path="res://animations/torus/torus14.png" type="Texture" id=11]
 [ext_resource path="res://animations/torus/torus19.png" type="Texture" id=12]
@@ -41,7 +42,6 @@
 [ext_resource path="res://animations/torus/torus18.png" type="Texture" id=49]
 [ext_resource path="res://animations/torus/torus24.png" type="Texture" id=50]
 [ext_resource path="res://animations/torus/torus28.png" type="Texture" id=51]
-[ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=52]
 [ext_resource path="res://scripts/Set of Toruses.gd" type="Script" id=53]
 [ext_resource path="res://animations/torus/torus12.png" type="Texture" id=54]
 [ext_resource path="res://animations/torus/torus5.png" type="Texture" id=55]
@@ -90,6 +90,18 @@ shader_param/outline_color = Color( 0.745098, 0.290196, 0.184314, 1 )
 shader_param/width = 2.0
 shader_param/enabled = false
 
+[sub_resource type="GDScript" id=16]
+script/source = "extends AudioStreamPlayer
+
+
+func play(from_position = 0.0):
+	for _i in range(3):
+		var original_pitch = pitch_scale
+		pitch_scale *= randf() 
+		.play(from_position)
+		pitch_scale = original_pitch
+"
+
 [sub_resource type="DynamicFont" id=7]
 size = 30
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
@@ -125,7 +137,7 @@ special_color = true
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 7
+frame = 2
 speed_scale = 0.1
 playing = true
 centered = false
@@ -168,7 +180,7 @@ flip_h = true
 [node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
 stream = ExtResource( 32 )
 pitch_scale = 2.35
-script = ExtResource( 52 )
+script = SubResource( 16 )
 
 [node name="Text Box" type="Node2D" parent="."]
 visible = false
@@ -289,3 +301,7 @@ mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0

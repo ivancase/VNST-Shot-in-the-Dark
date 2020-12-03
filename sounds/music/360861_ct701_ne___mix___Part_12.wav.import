@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/360861_ct701_ne___mix___Part_12.wav-6dc037cd4b74e2e3e6ddfa6bd61b1de0.sample"
+
+[deps]
+
+source_file="res://sounds/music/360861_ct701_ne___mix___Part_12.wav"
+dest_files=[ "res://.import/360861_ct701_ne___mix___Part_12.wav-6dc037cd4b74e2e3e6ddfa6bd61b1de0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

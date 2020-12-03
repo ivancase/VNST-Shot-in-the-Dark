@@ -9,6 +9,7 @@ func end():
 		pyramid.next_scene = "res://scenes/Restart.tscn"
 	yield(play_dialogue(parse_script(LAMENT)), "completed")
 	pyramid.anim.playback_speed *= 2
+	music.pitch_scale += 2
 	yield(play_dialogue(parse_script(FAST)), "completed")
 
 func _ready():
