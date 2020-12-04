@@ -19,8 +19,12 @@ var pressed
 var inputs_disabled
 	
 func _input(event):
+	if music and event.is_action_pressed("mute_music"):
+		music.stream_paused = !music.stream_paused
+	
 	if inputs_disabled:
 		return
+		
 	var boost_amt = 4
 	if event.is_action_pressed("ui_accept"):
 		emit_signal("next")
@@ -28,6 +32,7 @@ func _input(event):
 		pressed = true
 	if pressed and event.is_action_released("ui_accept"):
 		timer.wait_time *= boost_amt
+		
 	if event.is_action_pressed("shoot"):
 		shoot()
 		

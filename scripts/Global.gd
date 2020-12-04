@@ -1,5 +1,7 @@
 extends Node
 
+onready var muted = false
+
 onready var INTERIM_OCCURED = false
 
 onready var ICOSAHEDRON_CONVICTED = false
@@ -13,3 +15,8 @@ var CLOCK_TIME
 
 func amt_convicted():
 	return int(ICOSAHEDRON_CONVICTED) + int(SPHERE_CONVICTED) + int(TORUS_CONVICTED) + int(PYRAMID_CONVICTED)
+
+func _input(event):
+	if event.is_action_pressed("mute_global"):
+		muted = !muted
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), muted)
