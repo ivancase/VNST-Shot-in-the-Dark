@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=2]
@@ -51,7 +51,6 @@
 [ext_resource path="res://animations/torus/torus18.png" type="Texture" id=49]
 [ext_resource path="res://animations/torus/torus24.png" type="Texture" id=50]
 [ext_resource path="res://animations/torus/torus28.png" type="Texture" id=51]
-[ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=52]
 [ext_resource path="res://scripts/Set of Toruses.gd" type="Script" id=53]
 [ext_resource path="res://animations/torus/torus12.png" type="Texture" id=54]
 [ext_resource path="res://animations/torus/torus5.png" type="Texture" id=55]
@@ -144,7 +143,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 speed_scale = 0.1
 playing = true
 centered = false
@@ -214,7 +213,6 @@ flip_h = true
 [node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
 stream = ExtResource( 32 )
 pitch_scale = 2.35
-script = ExtResource( 52 )
 
 [node name="Narrator" parent="." instance=ExtResource( 1 )]
 

@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://scripts/StartButton.gd" type="Script" id=4]
+[ext_resource path="res://sounds/ticksound.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blapck" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -523.654
+margin_top = -308.037
+margin_right = 523.346
+margin_bottom = 311.963
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -43.0
+margin_right = 256.0
+margin_bottom = 47.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]shot in the dark."
+text = "
+shot in the dark."
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
+pitch_scale = 0.9
+
+[node name="ding" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+pitch_scale = 0.03
+
+[node name="white" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -523.654
+margin_top = -309.535
+margin_right = 523.346
+margin_bottom = 310.465
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="white2" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -523.654
+margin_top = -309.535
+margin_right = 523.346
+margin_bottom = 310.465
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

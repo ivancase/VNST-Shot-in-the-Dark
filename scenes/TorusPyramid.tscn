@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://animations/torus/torus2.png" type="Texture" id=2]
@@ -51,7 +51,6 @@
 [ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=49]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=50]
 [ext_resource path="res://scripts/Set of Toruses.gd" type="Script" id=51]
-[ext_resource path="res://scripts/TorusVoice.gd" type="Script" id=52]
 [ext_resource path="res://scripts/Pyramid.gd" type="Script" id=53]
 [ext_resource path="res://sprites/pyramid.png" type="Texture" id=54]
 [ext_resource path="res://sounds/music/360861_ct701_ne___mix___Part_12.wav" type="AudioStream" id=55]
@@ -189,7 +188,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 9
+frame = 2
 speed_scale = 0.1
 playing = true
 centered = false
@@ -233,7 +232,6 @@ anims/Toruses = SubResource( 7 )
 [node name="voice" type="AudioStreamPlayer" parent="Set of Toruses"]
 stream = ExtResource( 49 )
 pitch_scale = 2.35
-script = ExtResource( 52 )
 
 [node name="Pyramid" type="Node2D" parent="."]
 script = ExtResource( 53 )
