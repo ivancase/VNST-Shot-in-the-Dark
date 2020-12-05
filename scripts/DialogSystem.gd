@@ -19,9 +19,6 @@ var pressed
 var inputs_disabled
 	
 func _input(event):
-	if music and event.is_action_pressed("mute_music"):
-		music.stream_paused = !music.stream_paused
-	
 	if inputs_disabled:
 		return
 		
@@ -79,7 +76,7 @@ func direct_scene(intro, scripts):
 	
 	Global.INTERIM_OCCURED = false
 	
-	music.pitch_scale -= 0.1 * clock_time
+	music.pitch_scale += 0.2 * clock_time
 	music.play()
 	
 	fade_in()

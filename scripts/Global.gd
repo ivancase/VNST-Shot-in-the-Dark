@@ -1,6 +1,7 @@
 extends Node
 
 onready var muted = false
+onready var music = false
 
 onready var INTERIM_OCCURED = false
 
@@ -20,3 +21,6 @@ func _input(event):
 	if event.is_action_pressed("mute_global"):
 		muted = !muted
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), muted)
+	if event.is_action_pressed("mute_music"):
+		music = !music
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), music)

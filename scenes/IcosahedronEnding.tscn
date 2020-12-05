@@ -92,7 +92,7 @@ special_color = true
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 speed_scale = 0.1
 playing = true
 centered = false
@@ -246,3 +246,4 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = -10.0
+bus = "Music"

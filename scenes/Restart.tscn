@@ -132,3 +132,4 @@ __meta__ = {
 stream = ExtResource( 3 )
 volume_db = -20.0
 pitch_scale = 0.25
+bus = "Music"
