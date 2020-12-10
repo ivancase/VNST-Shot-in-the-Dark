@@ -135,16 +135,16 @@ const FUCK_THE_LAW = """
 	p :: no you (fast. fast, fast.) don't.
 	p :: we don't deserve to be treated (fast.) like this.
 	p :: as second class demons. as second dimension polyhedrons.
-	s :: We're called polygons. Watch it.
-	p :: sorry. i shouldn't extend you the same injustices the Council has.
+	s :: They're called polygons. Watch it.
+	p :: sorry. i shouldn't extend them the same injustices the Council has.
 	t :: NONE OF US DESERVE THIS. NOT EVEN YOU, CLOCK PERSON.
 	s :: Not even you, mortal.
-	i :: yeah !! killing shouldn't be a punishment!!
-	i :: ...
-	i :: we should kill the council in revenge !!!!
+	i :: yeah !! killing shouldn't be a punishment ,,,,
+	i :: ....
+	i :: we should kill the council in revenge !!!! :D
 	n :: ...
 	n :: wow.
-	n :: you'd do this all for me? proclaim yourselves guilty, and fight the council?
+	n :: you'd do this all for me? proclaim yourselves guilty, and fight the Deometric Council?
 	s :: \"All the more clout for us,\" as they say.
 	i :: literally nobody says that :V
 	n :: then let's do this.
