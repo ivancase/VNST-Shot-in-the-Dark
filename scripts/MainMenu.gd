@@ -6,13 +6,28 @@ onready var ding = get_node("ding")
 onready var white = get_node("white")
 onready var white2 = get_node("white2")
 onready var tween = get_node("Tween")
+onready var music = get_node("Music")
+onready var ticking = get_node("Ticking")
 
 var target
 var loading
 
+func _ready():
+	if Global.GOOD_END:
+		music.play()
+	else:
+		ticking.play()
+	
+	fade_in()
+
 func _input(event):
 	if !loading and event.is_action_pressed("shoot"):
 		shoot()
+
+func fade_in():
+	white.show()
+	tween.interpolate_property(white, "color", Color(0, 0, 0, 1), Color(0, 0, 0, 0), 5)
+	tween.start()
 
 func shoot():
 	var shot = target

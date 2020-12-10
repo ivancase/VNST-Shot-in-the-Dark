@@ -55,9 +55,9 @@ func _on_mouse_exit():
 	
 func act(line):
 	if is_right_aligned:
-		text.bbcode_text = "[right][color=#{hexcode}]{line}[/color][/right]".format({"hexcode": textcolor.to_html(), "line": line})
+		text.bbcode_text = "[right][color=#{hexcode}]{line}".format({"hexcode": textcolor.to_html(), "line": line})
 	else:
-		text.bbcode_text = "[color=#{hexcode}]{line}[/color]".format({"hexcode": textcolor.to_html(), "line": line})
+		text.bbcode_text = "[color=#{hexcode}]{line}".format({"hexcode": textcolor.to_html(), "line": line})
 	
 	text.percent_visible = 0
 	for letter in line:
@@ -67,6 +67,12 @@ func act(line):
 			timer.start()
 			yield(timer, "timeout")
 	text.percent_visible = 1
+	
+func fade_out(time):
+	white_screen.show()
+	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), time)
+	tween.start()
+	yield(tween, "tween_completed")
 
 func die():
 	mouse_over = false
@@ -86,10 +92,7 @@ func die():
 	tween.start()
 	yield(tween, "tween_completed")
 	
-	white_screen.show()
-	tween.interpolate_property(white_screen, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), 1)
-	tween.start()
-	yield(tween, "tween_completed")
+	yield(fade_out(1), "completed")
 	
 	get_tree().change_scene(next_scene)
 

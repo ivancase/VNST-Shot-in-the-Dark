@@ -16,7 +16,7 @@
 [ext_resource path="res://animations/sphere/sphere8.png" type="Texture" id=14]
 [ext_resource path="res://animations/sphere/sphere6.png" type="Texture" id=15]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ) ],
 "loop": true,
@@ -41,7 +41,7 @@ __meta__ = {
 light_mask = -2147483647
 material = ExtResource( 1 )
 position = Vector2( 173.96, 164.687 )
-frames = SubResource( 8 )
+frames = SubResource( 1 )
 flip_h = true
 
 [node name="voice" type="AudioStreamPlayer" parent="."]
