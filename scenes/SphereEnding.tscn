@@ -1,15 +1,21 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://scripts/Narrator.gd" type="Script" id=1]
 [ext_resource path="res://animations/sphere/sphere5.png" type="Texture" id=2]
 [ext_resource path="res://character_scenes/Choice Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/SphereEnding.gd" type="Script" id=4]
 [ext_resource path="res://character_scenes/Execute Text.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/circle.png" type="Texture" id=6]
+[ext_resource path="res://animations/circle/circle6.png" type="Texture" id=6]
 [ext_resource path="res://sounds/music/673830_motion-loop.wav" type="AudioStream" id=7]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://animations/circle/circle5.png" type="Texture" id=9]
+[ext_resource path="res://animations/circle/circle8.png" type="Texture" id=10]
+[ext_resource path="res://animations/circle/circle7.png" type="Texture" id=11]
+[ext_resource path="res://animations/circle/circle3.png" type="Texture" id=12]
 [ext_resource path="res://shaders/outline.tres" type="Material" id=13]
 [ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
+[ext_resource path="res://animations/circle/circle4.png" type="Texture" id=15]
+[ext_resource path="res://animations/circle/circle2.png" type="Texture" id=16]
 [ext_resource path="res://animations/sphere/sphere2.png" type="Texture" id=17]
 [ext_resource path="res://animations/sphere/sphere3.png" type="Texture" id=18]
 [ext_resource path="res://animations/sphere/sphere10.png" type="Texture" id=19]
@@ -17,8 +23,11 @@
 [ext_resource path="res://animations/sphere/sphere7.png" type="Texture" id=21]
 [ext_resource path="res://animations/sphere/sphere12.png" type="Texture" id=22]
 [ext_resource path="res://animations/sphere/sphere9.png" type="Texture" id=23]
+[ext_resource path="res://animations/circle/circle10.png" type="Texture" id=24]
 [ext_resource path="res://animations/sphere/sphere6.png" type="Texture" id=25]
 [ext_resource path="res://animations/background/anim_background2.png" type="Texture" id=26]
+[ext_resource path="res://animations/circle/circle1.png" type="Texture" id=27]
+[ext_resource path="res://animations/circle/circle9.png" type="Texture" id=28]
 [ext_resource path="res://animations/background/anim_background1.png" type="Texture" id=29]
 [ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=31]
 [ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=32]
@@ -50,8 +59,8 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
+"frames": [ ExtResource( 27 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 28 ), ExtResource( 24 ) ],
+"loop": false,
 "name": "circle",
 "speed": 5.0
 }, {
@@ -91,6 +100,7 @@ special_color = true
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
+frame = 8
 speed_scale = 0.1
 playing = true
 centered = false
