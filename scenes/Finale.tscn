@@ -256,7 +256,7 @@ visible = false
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 4
+frame = 9
 speed_scale = 0.1
 playing = true
 centered = false
@@ -324,9 +324,9 @@ shootable = false
 
 [node name="body" type="Control" parent="Sphere"]
 margin_left = 2.0
-margin_top = 123.485
+margin_top = 131.027
 margin_right = 349.0
-margin_bottom = 470.485
+margin_bottom = 478.027
 __meta__ = {
 "_edit_use_anchors_": false
 }
