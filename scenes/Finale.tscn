@@ -325,9 +325,9 @@ shootable = false
 
 [node name="body" type="Control" parent="Sphere"]
 margin_left = 19.162
-margin_top = 127.362
+margin_top = 131.027
 margin_right = 366.162
-margin_bottom = 474.362
+margin_bottom = 478.027
 __meta__ = {
 "_edit_use_anchors_": false
 }

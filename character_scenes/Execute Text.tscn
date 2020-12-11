@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
 
@@ -7,14 +7,44 @@ size = 60
 outline_color = Color( 1, 0.321569, 0.466667, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2, 0 ), Vector2( -2, 18 ) ]
+}
+
 [node name="Execute Text" type="RichTextLabel"]
 visible = false
 anchor_top = -0.017
 anchor_bottom = -0.017
 margin_left = -2.0
-margin_top = 2.0
+margin_top = 11.5841
 margin_right = 1023.0
-margin_bottom = 139.0
+margin_bottom = 148.584
+rect_rotation = 0.846211
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
@@ -23,3 +53,7 @@ text = "EXECUTE THE GUILTY PARTY."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="spinnin" type="AnimationPlayer" parent="."]
+autoplay = "move"
+anims/move = SubResource( 2 )
