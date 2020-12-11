@@ -14,6 +14,7 @@ size = 20
 font_data = ExtResource( 3 )
 
 [node name="Choice Box" type="Node2D"]
+visible = false
 script = ExtResource( 2 )
 
 [node name="instruction" type="RichTextLabel" parent="."]
@@ -36,9 +37,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 370.0
+margin_left = 345.0
 margin_top = 190.0
-margin_right = 705.0
+margin_right = 680.0
 margin_bottom = 425.0
 color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
@@ -62,7 +63,7 @@ __meta__ = {
 
 [node name="buttons" type="Node2D" parent="."]
 modulate = Color( 0.752941, 0.796078, 0.862745, 1 )
-position = Vector2( -7, 0 )
+position = Vector2( -32.4847, 0 )
 
 [node name="Button" type="Button" parent="buttons"]
 margin_left = 395.136

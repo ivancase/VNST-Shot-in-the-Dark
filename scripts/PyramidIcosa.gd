@@ -32,7 +32,6 @@ const INTRO = """
 	i :: *this* is what i'm up against ?? :C
 	n :: ?
 	p :: ? (fast)
-	i :: i can not believe this !!
 	i :: i thought the Council was actually starting to respect me !!!!
 	i :: but no no no no
 	i :: i've killed an uncountable number of demons and mortals
