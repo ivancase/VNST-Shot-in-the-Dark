@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://character_scenes/Narrator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://animations/icosahedron/icosahedron2.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://character_scenes/Text Box.tscn" type="PackedScene" id=5]
 [ext_resource path="res://animations/icosahedron/icosahedron1.png" type="Texture" id=6]
 [ext_resource path="res://animations/icosahedron/icosahedron4.png" type="Texture" id=7]
-[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://character_scenes/Exonecute Text.tscn" type="PackedScene" id=8]
 [ext_resource path="res://animations/icosahedron/icosahedron5.png" type="Texture" id=9]
 [ext_resource path="res://sounds/talk3.wav" type="AudioStream" id=10]
 [ext_resource path="res://animations/icosahedron/icosahedron6.png" type="Texture" id=11]
@@ -82,11 +82,6 @@ tracks/0/keys = {
 "values": [ Vector2( 112.598, 242 ), Vector2( 23.6029, 73.5454 ), Vector2( 116.395, 444.62 ), Vector2( 215.455, 256.407 ), Vector2( 13.3162, 220.309 ), Vector2( 118.858, 8.85335 ), Vector2( 160.689, 466.014 ), Vector2( 5.841, 425.144 ), Vector2( 238.487, 267.685 ), Vector2( 112.598, 242 ) ]
 }
 
-[sub_resource type="DynamicFont" id=7]
-size = 60
-outline_color = Color( 1, 0.321569, 0.466667, 1 )
-font_data = ExtResource( 8 )
-
 [node name="Scene" type="Control"]
 script = ExtResource( 18 )
 __meta__ = {
@@ -113,12 +108,13 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 4
+frame = 8
 speed_scale = 0.1
 playing = true
 centered = false
 
 [node name="Choice Box" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="Text Box" parent="." instance=ExtResource( 5 )]
 
@@ -187,21 +183,8 @@ stream = ExtResource( 31 )
 volume_db = -15.0
 pitch_scale = 0.9
 
-[node name="Exonecute Text" type="RichTextLabel" parent="."]
+[node name="Exonecute Text" parent="." instance=ExtResource( 8 )]
 visible = false
-anchor_top = -0.017
-anchor_bottom = -0.017
-margin_left = 12.3181
-margin_top = 13.3433
-margin_right = 1031.32
-margin_bottom = 150.343
-custom_fonts/normal_font = SubResource( 7 )
-bbcode_enabled = true
-bbcode_text = "[shake]EXONECUTE THE INNOCENT PARTY."
-text = "EXONECUTE THE INNOCENT PARTY."
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Clock" type="TextureRect" parent="."]
 visible = false
