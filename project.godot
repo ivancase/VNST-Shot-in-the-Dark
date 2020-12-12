@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="VNST"
+config/name="shot in the dark."
 run/main_scene="res://scenes/MainMenu.tscn"
 
 [audio]

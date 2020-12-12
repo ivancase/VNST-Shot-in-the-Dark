@@ -34,6 +34,9 @@ func die():
 	
 	voice.play()
 	
+	tween = Tween.new()
+	add_child(tween)
+	
 	tween.interpolate_property(body, "rect_position", body.rect_position, body.rect_position + Vector2(0, 800), 1, Tween.TRANS_LINEAR)
 	tween.start()
 	yield(tween, "tween_completed")
