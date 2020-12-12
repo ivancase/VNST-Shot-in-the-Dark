@@ -139,7 +139,7 @@ duration = 5.0
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 9
+frame = 4
 speed_scale = 0.1
 playing = true
 centered = false
@@ -156,9 +156,9 @@ is_right_aligned = true
 
 [node name="body" type="Control" parent="Icosahedron"]
 margin_left = 705.0
-margin_top = 88.0
+margin_top = 89.0
 margin_right = 1026.0
-margin_bottom = 599.0
+margin_bottom = 600.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
