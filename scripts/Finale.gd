@@ -58,6 +58,7 @@ func direct_scene(intro, _scripts):
 	yield(play_dialogue(parse_script(FUCK_THE_LAW)), "completed")
 	narrator.enter_limelight()
 	narrator.shootable = false
+	inputs_disabled = true
 	
 	end()
 	
@@ -85,7 +86,7 @@ const INTRO = """
 	n :: what do *you* want??
 	n :: and why are you so slow all of a sudden????
 	p :: chill out for a second.
-	p :: that shot to the forward face (fast. fast.) cleared my head a little.
+	p :: those shots to the forward face (fast. fast.) cleared my head a little.
 	p :: so, i've just been meaning (fast.) to tell you.
 	p :: your clock is fast.
 	n :: ...
@@ -100,6 +101,7 @@ const FIXED = """
 	n :: so...
 	n :: so it was my fault. the whole time.
 	n :: you didn't die an hour early. my clock was an hour late.
+	n :: i've completely failed at the one thing i was created for.
 	n :: i need a second.
 	n :: ...
 	n :: ...
@@ -110,7 +112,7 @@ const DIDNT_SHOOT = """
 	n :: ....really?
 	n :: after all i've done.
 	n :: i've shirked my duties. i've abused my control over the clocks.
-	n :: by now, i bet demons are starting to piece things together.
+	n :: by now, i bet they're all starting to piece things together.
 	n :: the memories are pouring back in. i've made you kill these poor demons over, and over.
 	n :: they'll remember the injustice. and the agony. bullets hurt, you know.
 	n :: i'm a monster.
@@ -121,25 +123,30 @@ const DIDNT_SHOOT = """
 	n :: ...
 	n :: ...
 	"""
-	
+
 const FUCK_THE_LAW = """
 	t :: FUCK THE LAW.
 	n :: what?
 	t :: FUCK THE LAW. FUCK THE COUNCIL. IT'S ALL A SHAM.
-	s :: Yes. I'm with the Toruses. The Council has inhibited us for too long.
-	s :: We're done with the senseless killing of innocent demons.
+	s :: Yes. I'm with the Toruses.
+	s :: The Council set us up for failure. They've inhibited us for too long.
+	s :: We're done with their rule over our lives and our deaths.
 	i :: yes !! these rigged courts really suck :C
-	i :: ... kinda dig the senseless murder though hehe
+	i :: ... kinda dig the senseless murder part though hehe
 	n :: i did this to you guys. to all of you. *i* fucked up.
-	n :: i deserve to die.
+	n :: i was never fit to run the clocks in the first place.
+	n :: i didn't deserve to be created.
+	n :: so i deserve to be destroyed.
 	p :: no you (fast. fast, fast.) don't.
+	p :: you're not broken. the system is.
 	p :: we don't deserve to be treated (fast.) like this.
-	p :: as second class demons. as second dimension polyhedrons.
-	s :: They're called polygons. Watch it.
-	p :: sorry. i shouldn't extend them the same injustices the Council has.
+	p :: we (fast fast.) don't deserve to feel (FAST.) like this.
 	t :: NONE OF US DESERVE THIS. NOT EVEN YOU, CLOCK PERSON.
 	s :: Not even you, mortal.
-	i :: yeah !! killing shouldn't be a punishment ,,,,
+	i :: yeah !!
+	i :: we were all accused of guilt for being nonstandard
+	i :: being abnormal shouldn't be a crime !!
+	i :: and killing shouldn't be the punishment :C
 	i :: ....
 	i :: we should kill the council in revenge !!!! :D
 	n :: ...
@@ -149,5 +156,5 @@ const FUCK_THE_LAW = """
 	i :: literally nobody says that :V
 	n :: then let's do this.
 	n :: mortal, this is a shot in the dark, but...
-	n :: will you come with us?
+	n :: come with us?
 	"""

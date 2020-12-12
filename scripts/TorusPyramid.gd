@@ -34,7 +34,7 @@ const INTRO = """
 	t :: YOU HAVE A LEGAL OBLIGATION TO --
 	t :: WAIT WHAT. YOU ARE SO FAST, PYRAMID.
 	t :: CAN WE DO THAT.
-	p :: heelll l yeah my fast brother!!!!!!
+	p :: heelll l yeah my fast friend!!!!!!
 	p :: you just (fastfast) gotta beleive :)
 	n :: what is happpening
 	t :: OK. WE ARE GOING TO TRY.

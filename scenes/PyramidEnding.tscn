@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scripts/Narrator.gd" type="Script" id=1]
 [ext_resource path="res://sprites/pyramid.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://character_scenes/Execute Text.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/music/673830_motion-loop.wav" type="AudioStream" id=7]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://character_scenes/Scream.tscn" type="PackedScene" id=9]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=13]
 [ext_resource path="res://scripts/ColorShift.gd" type="Script" id=14]
 [ext_resource path="res://animations/background/anim_background2.png" type="Texture" id=26]
@@ -95,7 +96,7 @@ special_color = true
 material = SubResource( 1 )
 position = Vector2( 0, -210 )
 frames = SubResource( 2 )
-frame = 4
+frame = 8
 speed_scale = 0.1
 playing = true
 centered = false
@@ -254,3 +255,5 @@ __meta__ = {
 stream = ExtResource( 7 )
 volume_db = -10.0
 bus = "Music"
+
+[node name="Scream" parent="." instance=ExtResource( 9 )]

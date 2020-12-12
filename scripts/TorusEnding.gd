@@ -26,7 +26,7 @@ const SPEECH = """
 	t :: WHY COULD YOU NOT JUST COMPLY.
 	t :: WE DIDN'T KILL YOU.
 	t :: EVEN IF WE DID, THE SPHERE CONFESSED. TO EXONECUTE THEM IS IRRESPONSIBLE.
-	n :: gotta admit, mortal. this was a bad call.
+	n :: gotta admit, mortal. there was basically no chance this demon did it.
 	t :: ...
 	t :: YOU MUST REALLY NOT LIKE US.
 	t :: AND NOBODY IN THE DARK WILL, NOW.
@@ -40,15 +40,18 @@ const THE_POINT = """
  	t :: WHAT EVEN WAS THE POINT THEN.
 	t :: OF FOLLOWING ALL THOSE LAWS. EVERY DAY.
 	t :: BEING BONDED TOGETHER EVERY DAY. FOR MILLENIA. EONS.
-	t :: ~LEFT TORUS SAYS:~
+	t :: LEFT TORUS SAYS:
 	t :: You know, we don't really have to be bonded anymore.
-	t :: ~RIGHT TORUS SAYS:~
-	t :: Yeah. Death is on the line anyway. We're already screwed.
-	t :: ~TOP TORUS SAYS:~
-	t :: I agree. But it wouldn't be right to split up now.
-	t :: Then the mortal would only have to shoot one of us.
-	t :: No, they'll have to live with their error. And execute all three of us.
-	t :: AT LEAST IT FEELS NICE. TO BE FREE. TO BE THREE.
+	t :: RIGHT TORUS SAYS:
+	t :: Yeah. The bond is only legal, not physical.
+	t :: TOP TORUS SAYS:
+	t :: I agree. And maybe we should split up.
+	t :: BUT FOR SOME REASON WE DON'T WANT TO.
+	t :: THERE'S COMFORT IN THIS FORM, SOMEHOW.
+	t :: IT'S NOT CORRECT.
+	t :: IT'S NOT HOW WE'D CHOOSE TO BE.
+	t :: BUT I GUESS IT'S OKAY FOR US TO STAY THIS WAY A LITTLE LONGER.
+	t :: AT LEAST IT FEELS NICE. TO KNOW WE ARE FREE. TO KNOW WE ARE THREE.
 	t :: WE ACCEPT DEATH, TOGETHER.
 	n :: sorry mortal, there's no out of this one.
 	"""

@@ -18,7 +18,7 @@ func end():
 	
 const ZERO = """
 	n :: i'm sorry but that was the worst thing i've ever witnesed.
-	n :: i could not deal with them right now.
+	n :: that is not something i want to deal with right now.
 	n :: so
 	n :: i shouldn't be doing this.
 	c :: clock appear
@@ -32,28 +32,31 @@ const FIRST = """
  	n :: fuck fuck fuck
 	n :: ok ok we screwed up. we got the wrong demon.
 	n :: i don't want to die.
-	n :: so i'm going to break the rules a little.
+	n :: ...
+	n :: okay, this is a bad idea.
+	n :: but i'm going to break the rules a little.
 	n :: i'm *really* not allowed to do this.
-	n :: but i'm setting the clock back.
-	n :: we can try again.
+	n :: i'm going to set the clock back.
+	n :: we can try again. from the beginning.
 	n :: you've got three other demons to accuse.
 	"""
 
 const SECOND = """
  	n :: no no no no.
 	n :: how could we screw up *twice*.
-	n :: it's okay it's okay .
+	n :: it's okay it's okay.
 	n :: we'll try again. you'll get it right.
-	n :: god i hope the Council doesn't notice ...
-	n :: two more demons to try.
+	n :: god i hope the Council doesn't notice...
+	n :: i'm completely abusing my responsibilities.
+	n :: whatever. two more demons left to accuse.
 	c :: clock appear
 	"""
 	
 const THIRD = """
  	n :: OK.
 	n :: NO PANICKING.
-	n :: that leaves ONE MORE DEMON
-	n :: it has to be them. this is our last shot.
+	n :: WE'LL SET THE CLOCK BACK AGAIN. THAT LEAVES ONE MORE DEMON.
+	n :: it has to be them. this is our last chance.
 	c :: clock appear
 	"""
 	

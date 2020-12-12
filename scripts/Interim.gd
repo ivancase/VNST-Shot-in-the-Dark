@@ -6,9 +6,12 @@ func _on_ready():
 	key = {"n" : narrator}
 	Global.INTERIM_OCCURED = true
 	
-	billing = get_node("Billing")
 	clock.next_scene = Global.CURRENT_SCENE
+	clock.body.texture = load("res://sprites/clock%s.png" % max(0, Global.CLOCK_TIME - 1))
+	
+	billing = get_node("Billing")
 	billing.bbcode_text = "[center][shake]" + Global.TRIAL_NAME
+	
 	end()
 
 func end():
@@ -23,9 +26,3 @@ func end():
 	clock.shootable = true
 	if clock.mouse_over:
 		clock._on_mouse_enter()
-	
-	#yield(play_dialogue(parse_script(OVER)), "completed")
-
-const OVER = """
-	n :: shoot the clock whenever you're ready.
-	"""

@@ -27,17 +27,20 @@ const SPEECH = """
  	p :: yesyesyesyes
 	p :: so fastsf atts fast
 	p :: won't slow down
+	p :: you (fast) couldn't hit me (FAST FAST FAST)
 	p :: ...
-	p :: but i knowyou'll shoot me (fast) eventually.
-	n :: do you have a confession?
+	p :: who am i kidding
+	p :: i knowyou'll shoot me (fast) eventually.
+	n :: do you have a confession to make?
 	p :: nope nope fastfast
-	p :: didn't kill the mortal FAST never killed anyone (fastfast)
+	p :: didn't kill the mortal (fast)
+	p :: never killed anyone (FASTfast)
 	n :: god damn it.
 	n :: let's get this over with, then.
 	"""
 	
 const LAMENT = """
-	p :: don'tpretend i don't (fast) know how you see me
+	p :: don'tpretend i don't (fast) know how (FAST) you see me
 	p :: i know i'm fast (fast) (fastfast)
 	p :: i know you (fast) know that FASTFASTFASTFAST
 	p :: fastsfast sfast fast fsatsfas
@@ -58,7 +61,7 @@ const LAMENT = """
 	p :: FASTFAST FAST fast FAST FAST FASTSFAST
 	p :: but that's neither here nor there FAST
 	p :: because i'm neither here nor there
-	p :: FAST FAST how you FAST gonna shoot FAST me
+	p :: FAST FAST how are you FAST gonna shoot FAST me
 	p :: IF I'M VERY
 	p :: VERY
 	"""

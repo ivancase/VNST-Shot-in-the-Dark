@@ -8,6 +8,7 @@ export(bool) var shootable = true
 onready var body = get_node("body")
 onready var text_box = get_node("../Text Box")
 onready var voice = get_node("voice")
+onready var scream = get_node("../Scream")
 onready var timer = get_node("../Timer")
 onready var tween = get_node("../Tween")
 onready var white_screen = get_node("../White Screen")
@@ -81,9 +82,10 @@ func die():
 	exit_limelight()
 	#anim.modulate = Color(10, 10, 10)
 	
-	voice.stream = load("res://sounds/death.wav")
-	voice.volume_db -= 10
-	voice.play()
+	voice.volume_db = -80
+	
+	scream.pitch_scale = voice.pitch_scale
+	scream.play()
 	
 	tween = Tween.new()
 	add_child(tween)

@@ -76,7 +76,7 @@ func direct_scene(intro, scripts):
 	
 	Global.INTERIM_OCCURED = false
 	
-	music.pitch_scale += 0.2 * clock_time
+	music.pitch_scale += 0.25 * clock_time
 	music.play()
 	
 	fade_in()
